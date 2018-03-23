@@ -21,8 +21,8 @@ const config = {
             '!**/gulpfile.js',
             '!**/gulp',
             '!**/gulp/**',
-            '!**/composer.json',
-            '!**/composer.lock'
+            '!**/*.json',
+            '!**/*.lock'
         ],
         dest: './svn/trunk',
         clean: './svn/trunk/**/*'
