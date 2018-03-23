@@ -1,0 +1,16 @@
+{
+  "name": "random-post-on-refresh",
+  "description": "The Random Post on Refresh plugin allows you to show a random post on every page load.",
+  "author": "Micah Wood <micah@wpscholar.com> (http://wpscholar.com)",
+  "license": "GPL-3.0+",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wpscholar/random-post-on-refresh.git"
+  },
+  "dependencies": {
+    "del": "^1.2.1",
+    "gulp": "^3.9.1",
+    "gulp-shell": "^0.4.3"
+  }
+}

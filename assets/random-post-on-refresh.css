@@ -1,0 +1,33 @@
+.random-post-on-refresh {
+    margin: 1em 0;
+}
+
+.random-post-on-refresh__title {
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    margin: .5em 0;
+}
+
+.random-post-on-refresh__image {
+    display: block;
+    margin: .5em 0;
+}
+
+.random-post-on-refresh__excerpt {
+    display: block;
+    text-decoration: none;
+    margin: .5em 0;
+}
+
+.random-post-on-refresh-error {
+    border: 1px solid red;
+    color: red;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.random-post-on-refresh-error p:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
