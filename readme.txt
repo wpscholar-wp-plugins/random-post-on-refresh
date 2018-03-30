@@ -71,7 +71,7 @@ The `[random_post_on_refresh]` shortcode supports a few attributes to give you m
 
 * **size** - Provide a registered image size to use for image display (optional, only takes effect if images are being shown). Example: `[random_post_on_refresh size="thumbnail"]`
 
-* **show** - Provide a comma-separated list of post elements to display. Options are: title, image, excerpt. Defaults to `title, image, excerpt`. Note: If images are shown, only posts with featured images will be returned. Example: `[random_post_on_refresh show="title, image"]`
+* **show** - Provide a comma-separated list of post elements to display. You can also use a vertical pipe `|` character instead of a comma to separate items into columns. Options are: title, image, excerpt, content. Defaults to `title, image, excerpt`. Items will show in the order you provide. Note: If images are shown, only posts with featured images will be returned. Example: `[random_post_on_refresh show="title, image"]`
 
 Keep in mind that any of these attributes can be combined as needed.  Example: `[random_post_on_refresh author="19" size="full" not="2310"]`.  Also, keep in mind that the shortcode can be used in text widgets.
 

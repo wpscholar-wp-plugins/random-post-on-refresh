@@ -64,12 +64,19 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				self::SHORTCODE
 			);
 
-			$show = array_filter( array_map( 'trim', explode( ',', $atts['show'] ) ) );
 			$image_size = $atts['size'];
+
+			$groups = array_filter( array_map( function ( $group ) {
+				return self::list_to_array( $group );
+			}, self::list_to_array( $atts['show'], '|' ) ) );
+
+			$can_show = [ 'title', 'image', 'excerpt', 'content' ];
+			$show = array_merge( ...$groups );
 
 			$show_title = in_array( 'title', $show, true );
 			$show_image = in_array( 'image', $show, true );
 			$show_excerpt = in_array( 'excerpt', $show, true );
+			$show_content = in_array( 'content', $show, true );
 
 			// Check for featured image support
 			if ( $show_image && ! current_theme_supports( 'post-thumbnails' ) ) {
@@ -156,16 +163,10 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			}
 
 			if ( $show_image ) {
-				$query_args['meta_query'] = [
-					[
-						'key' => '_thumbnail_id',
-					]
-				];
+				$query_args['meta_query'] = [ [ 'key' => '_thumbnail_id' ] ];
 			}
 
 			$query = new WP_Query( $query_args );
-
-			var_dump( $query_args );
 
 			if ( ! $query->have_posts() ) {
 				return self::error(
@@ -186,15 +187,42 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				);
 			}
 
+			$display = [];
+			foreach ( $groups as $items ) {
+				if ( count( $groups ) > 1 ) {
+					$display[] = '<span class="random-post-on-refresh__group">';
+				}
+				foreach ( $items as $item ) {
+					if ( in_array( $item, $can_show, true ) ) {
+						switch ( $item ) {
+							case 'title':
+								$display['title'] = $show_title ? sprintf( '<span class="random-post-on-refresh__title">%s</span>', esc_html( get_the_title( $post ) ) ) : '';
+								break;
+							case 'image':
+								$display['image'] = $show_image ? sprintf( '<span class="random-post-on-refresh__image">%s</span>', get_the_post_thumbnail( $post, $image_size ) ) : '';
+								break;
+							case 'excerpt':
+								$display['excerpt'] = $show_excerpt ? sprintf( '<span class="random-post-on-refresh__excerpt">%s</span>', self::get_the_excerpt( $post ) ) : '';
+								break;
+							case 'content':
+								$display['content'] = $show_content ? sprintf( '<span class="random-post-on-refresh__content">%s</span>', apply_filters( 'the_content', wp_kses_post( $post->post_content ) ) ) : '';
+								break;
+						}
+					}
+				}
+				if ( count( $groups ) > 1 ) {
+					$display[] = '</span>';
+				}
+			}
+
 			return sprintf(
 				'<div class="random-post-on-refresh %s"><a href="%s">%s</a></div>',
-				esc_attr( $atts['class'] ),
+				esc_attr( implode( ' ', array_filter( [
+					count( $groups ) > 1 ? '--has-groups' : '',
+					$atts['class']
+				] ) ) ),
 				esc_url( get_the_permalink( $post ) ),
-				implode( '', array_filter( [
-					$show_title ? sprintf( '<span class="random-post-on-refresh__title">%s</span>', esc_html( get_the_title( $post ) ) ) : '',
-					$show_image ? sprintf( '<span class="random-post-on-refresh__image">%s</span>', get_the_post_thumbnail( $post, $image_size ) ) : '',
-					$show_excerpt ? sprintf( '<span class="random-post-on-refresh__excerpt">%s</span>', esc_html( get_the_excerpt( $post ) ) ) : '',
-				] ) )
+				implode( '', array_filter( $display ) )
 			);
 		}
 
@@ -212,6 +240,31 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			}
 
 			return $ids;
+		}
+
+		/**
+		 * Convert a list (string) to an array
+		 *
+		 * @param string $list
+		 * @param string $delimiter
+		 *
+		 * @return array
+		 */
+		public static function list_to_array( $list, $delimiter = ',' ) {
+			return array_filter( array_map( 'trim', explode( $delimiter, $list ) ) );
+		}
+
+		/**
+		 * Get the excerpt for a specific post (outside of the loop).
+		 *
+		 * @param WP_Post $post
+		 *
+		 * @return string
+		 */
+		public static function get_the_excerpt( WP_Post $post ) {
+			$excerpt = empty( $post->post_excerpt ) ? $post->post_content : $post->post_excerpt;
+
+			return (string) apply_filters( 'the_excerpt', apply_filters( 'get_the_excerpt', wp_kses_post( $excerpt ) ) );
 		}
 
 		/**
