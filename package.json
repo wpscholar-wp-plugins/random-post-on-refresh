@@ -9,8 +9,8 @@
     "url": "https://github.com/wpscholar/random-post-on-refresh.git"
   },
   "dependencies": {
-    "del": "^1.2.1",
-    "gulp": "^3.9.1",
-    "gulp-shell": "^0.4.3"
+    "del": "^3.0.0",
+    "gulp": "^4.0.0",
+    "shelljs": "^0.8.3"
   }
 }

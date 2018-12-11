@@ -1,12 +1,12 @@
 'use strict';
 
 const gulp = require('gulp');
-const shell = require('gulp-shell');
+const shell = require('shelljs');
 const del = require('del');
 
 const config = {
     svn: {
-        url: 'https://plugins.svn.wordpress.org/random-post-on-refresh/',
+        url: 'http://plugins.svn.wordpress.org/random-post-on-refresh/',
         src: [
             './**',
             '!**/svn',
@@ -29,14 +29,19 @@ const config = {
     }
 };
 
-gulp.task('svn:checkout', shell.task('svn co ' + config.svn.url + ' svn'));
+gulp.task('checkout', (done) => {
+    shell.exec('svn co ' + config.svn.url + ' svn');
+    done();
+});
 
-gulp.task('svn:clean', function () {
+gulp.task('clean', () => {
     return del(config.svn.clean);
 });
 
-gulp.task('svn:stage', ['svn:clean'], function () {
+gulp.task('copy', () => {
     return gulp.src(config.svn.src).pipe(gulp.dest(config.svn.dest));
 });
 
-gulp.task('default', ['svn:stage']);
+gulp.task('stage', gulp.series('clean', 'copy'));
+
+gulp.task('default', gulp.series('stage'));
