@@ -6,7 +6,7 @@
  * Plugin URI: http://wpscholar.com/wordpress-plugins/random-post-on-refresh/
  * Author: Micah Wood
  * Author URI: http://wpscholar.com
- * Version: 1.0
+ * Version: 1.1
  * Text Domain: random-post-on-refresh
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -32,14 +32,18 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			add_shortcode( self::SHORTCODE, array( __CLASS__, 'shortcode' ) );
 		}
 
+		/**
+		 * Enqueue style.
+		 */
 		public static function wp_enqueue_scripts() {
-			wp_register_style( self::SHORTCODE, plugins_url( '/assets/random-post-on-refresh.css', __FILE__ ) );
+			$plugin_version = get_file_data( __FILE__, array( 'Version' ), 'plugin' );
+			wp_register_style( self::SHORTCODE, plugins_url( '/assets/random-post-on-refresh.css', __FILE__ ), array(), $plugin_version );
 		}
 
 		/**
 		 * Shortcode handler
 		 *
-		 * @param array $atts
+		 * @param array $atts Shortcode attributes
 		 *
 		 * @return bool|string
 		 */
@@ -66,15 +70,20 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 
 			$image_size = $atts['size'];
 
-			$groups = array_filter( array_map( function ( $group ) {
-				return self::list_to_array( $group );
-			}, self::list_to_array( $atts['show'], '|' ) ) );
+			$groups = array_filter(
+				array_map(
+					function ( $group ) {
+						return self::list_to_array( $group );
+					},
+					self::list_to_array( $atts['show'], '|' )
+				)
+			);
 
 			$can_show = [ 'title', 'image', 'excerpt', 'content' ];
-			$show = array_merge( ...$groups );
+			$show     = array_merge( ...$groups );
 
-			$show_title = in_array( 'title', $show, true );
-			$show_image = in_array( 'image', $show, true );
+			$show_title   = in_array( 'title', $show, true );
+			$show_image   = in_array( 'image', $show, true );
 			$show_excerpt = in_array( 'excerpt', $show, true );
 			$show_content = in_array( 'content', $show, true );
 
@@ -89,7 +98,9 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			// Taxonomy validation
 			if ( ! empty( $atts['taxonomy'] ) && ! taxonomy_exists( $atts['taxonomy'] ) ) {
 				return self::error(
-					sprintf( __( 'Sorry, taxonomy "%s" is invalid. Valid options are: %s. Please check your shortcode implementation.', 'random-post-on-refresh' ),
+					sprintf(
+						// Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
+						__( 'Sorry, taxonomy "%1$s" is invalid. Valid options are: %2$s. Please check your shortcode implementation.', 'random-post-on-refresh' ),
 						$atts['taxonomy'],
 						implode( ', ', get_taxonomies() )
 					),
@@ -100,14 +111,14 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			// Taxonomy/term attribute validation
 			if ( ! empty( $atts['terms'] ) && empty( $atts['taxonomy'] ) ) {
 				return self::error(
-					sprintf( __( 'Sorry, you cannot use the terms attribute without the taxonomy attribute. Please check your shortcode implementation.', 'random-post-on-refresh' ), $post_type ),
+					__( 'Sorry, you cannot use the terms attribute without the taxonomy attribute. Please check your shortcode implementation.', 'random-post-on-refresh' ),
 					'[' . self::SHORTCODE . ' terms="' . $atts['terms'] . '"]'
 				);
 			}
 
 			if ( empty( $atts['terms'] ) && ! empty( $atts['taxonomy'] ) ) {
 				return self::error(
-					sprintf( __( 'Sorry, you cannot use the taxonomy attribute without the terms attribute. Please check your shortcode implementation.', 'random-post-on-refresh' ), $post_type ),
+					__( 'Sorry, you cannot use the taxonomy attribute without the terms attribute. Please check your shortcode implementation.', 'random-post-on-refresh' ),
 					'[' . self::SHORTCODE . ' taxonomy="' . $atts['taxonomy'] . '"]'
 				);
 			}
@@ -119,7 +130,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				if ( ! post_type_exists( $post_type ) ) {
 					return self::error(
 						sprintf(
-							__( 'Sorry, post type "%s" is invalid. Valid options are: %s. Please check your shortcode implementation.', 'random-post-on-refresh' ),
+							// Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
+							__( 'Sorry, post type "%1$s" is invalid. Valid options are: %2$s. Please check your shortcode implementation.', 'random-post-on-refresh' ),
 							$post_type,
 							implode( ', ', get_post_types( [ 'public' => true ] ) )
 						),
@@ -153,7 +165,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				$terms = self::parse_id_list( $atts['terms'] );
 				if ( 'category' === $atts['taxonomy'] ) {
 					$query_args['category__in'] = $terms;
-				} else if ( 'post_tag' === $atts['taxonomy'] ) {
+				} elseif ( 'post_tag' === $atts['taxonomy'] ) {
 					$query_args['tag__in'] = $terms;
 				} else {
 					$query_args['tax_query'] = [
@@ -167,6 +179,9 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				$query_args['meta_query'] = [ [ 'key' => '_thumbnail_id' ] ];
 			}
 
+			// Never load the current post.
+			$query_args['post__not_in'][] = get_the_ID();
+
 			$query = new WP_Query( $query_args );
 
 			if ( ! $query->have_posts() ) {
@@ -178,6 +193,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			$posts = $query->posts;
 
 			/**
+			 * The randomly selected post.
+			 *
 			 * @var WP_Post $post
 			 */
 			$post = $posts[ array_rand( $posts ) ];
@@ -218,10 +235,17 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 
 			return sprintf(
 				'<div class="random-post-on-refresh %s"><a href="%s">%s</a></div>',
-				esc_attr( implode( ' ', array_filter( [
-					count( $groups ) > 1 ? '--has-groups' : '',
-					$atts['class']
-				] ) ) ),
+				esc_attr(
+					implode(
+						' ',
+						array_filter(
+							[
+								count( $groups ) > 1 ? '--has-groups' : '',
+								$atts['class'],
+							]
+						)
+					)
+				),
 				esc_url( get_the_permalink( $post ) ),
 				implode( '', array_filter( $display ) )
 			);
@@ -230,7 +254,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		/**
 		 * Parse an ID list into an array.
 		 *
-		 * @param string $list
+		 * @param string $list A comma separated list of IDs
 		 *
 		 * @return int[]
 		 */
@@ -246,8 +270,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		/**
 		 * Convert a list (string) to an array
 		 *
-		 * @param string $list
-		 * @param string $delimiter
+		 * @param string $list A delimiter separated list of items
+		 * @param string $delimiter The delimiter used to separate items.
 		 *
 		 * @return array
 		 */
@@ -258,7 +282,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		/**
 		 * Get the excerpt for a specific post (outside of the loop).
 		 *
-		 * @param WP_Post $post
+		 * @param WP_Post $post The WordPress post.
 		 *
 		 * @return string
 		 */
@@ -271,9 +295,9 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		/**
 		 * Setup error message.
 		 *
-		 * @param string $message
+		 * @param string $message The error message to display.
 		 *
-		 * @param string $example
+		 * @param string $example (optional) An example shortcode usage.
 		 *
 		 * @return string
 		 */
