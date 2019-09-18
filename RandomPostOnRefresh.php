@@ -5,12 +5,12 @@
  * Description: Show a random post on every page load.
  * Plugin URI: http://wpscholar.com/wordpress-plugins/random-post-on-refresh/
  * Author: Micah Wood
- * Author URI: http://wpscholar.com
- * Version: 1.1
+ * Author URI: https://wpscholar.com
+ * Version: 1.1.1
  * Text Domain: random-post-on-refresh
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Copyright 2018 by Micah Wood - All rights reserved.
+ * Copyright 2018-2019 by Micah Wood - All rights reserved.
  */
 
 if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
@@ -80,10 +80,10 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			);
 
 			$can_show = [ 'title', 'image', 'excerpt', 'content' ];
-			$show     = array_merge( ...$groups );
+			$show = array_merge( ...$groups );
 
-			$show_title   = in_array( 'title', $show, true );
-			$show_image   = in_array( 'image', $show, true );
+			$show_title = in_array( 'title', $show, true );
+			$show_image = in_array( 'image', $show, true );
 			$show_excerpt = in_array( 'excerpt', $show, true );
 			$show_content = in_array( 'content', $show, true );
 
@@ -99,7 +99,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			if ( ! empty( $atts['taxonomy'] ) && ! taxonomy_exists( $atts['taxonomy'] ) ) {
 				return self::error(
 					sprintf(
-						// Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
+					// Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
 						__( 'Sorry, taxonomy "%1$s" is invalid. Valid options are: %2$s. Please check your shortcode implementation.', 'random-post-on-refresh' ),
 						$atts['taxonomy'],
 						implode( ', ', get_taxonomies() )
@@ -130,7 +130,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				if ( ! post_type_exists( $post_type ) ) {
 					return self::error(
 						sprintf(
-							// Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
+						// Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
 							__( 'Sorry, post type "%1$s" is invalid. Valid options are: %2$s. Please check your shortcode implementation.', 'random-post-on-refresh' ),
 							$post_type,
 							implode( ', ', get_post_types( [ 'public' => true ] ) )
@@ -287,9 +287,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		 * @return string
 		 */
 		public static function get_the_excerpt( WP_Post $post ) {
-			$excerpt = empty( $post->post_excerpt ) ? $post->post_content : $post->post_excerpt;
-
-			return (string) apply_filters( 'the_excerpt', apply_filters( 'get_the_excerpt', wp_kses_post( $excerpt ) ) );
+			return (string) apply_filters( 'the_excerpt', apply_filters( 'get_the_excerpt', $post->post_excerpt, $post ) );
 		}
 
 		/**

@@ -3,8 +3,8 @@ Contributors: woodent, wpscholar, Imzodigital
 Donate link: https://www.paypal.me/wpscholar
 Tags: random post, post rotation, different post
 Requires at least: 4.5
-Tested up to: 5.0
-Stable tag: 1.1
+Tested up to: 5.2.3
+Stable tag: 1.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -77,6 +77,10 @@ Keep in mind that any of these attributes can be combined as needed.  Example: `
 
 == Changelog ==
 
+= 1.1.1 =
+
+* Fixed bug where post excerpts were being generated incorrectly.
+
 = 1.1 =
 
 * Ensure code meets coding standards.
@@ -93,4 +97,8 @@ Keep in mind that any of these attributes can be combined as needed.  Example: `
 = 1.1 =
 
 * The latest update pulls from a larger selection of matching posts before selecting a random post. Works with WordPress 5.0.
+
+= 1.1.1 =
+
+* Bug fix for how post excerpts are generated. Tested with WordPress 5.2.3.
 
