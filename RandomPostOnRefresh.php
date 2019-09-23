@@ -6,7 +6,7 @@
  * Plugin URI: http://wpscholar.com/wordpress-plugins/random-post-on-refresh/
  * Author: Micah Wood
  * Author URI: https://wpscholar.com
- * Version: 1.1.1
+ * Version: 1.2
  * Text Domain: random-post-on-refresh
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -53,16 +53,17 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 
 			$atts = shortcode_atts(
 				array(
-					'author'    => '',
-					'ids'       => '',
-					'not'       => '',
-					'post_type' => 'post',
-					'search'    => '',
-					'taxonomy'  => '',
-					'terms'     => '',
-					'class'     => '',
-					'size'      => 'large',
-					'show'      => 'title, image, excerpt',
+					'author'         => '',
+					'class'          => '',
+					'ids'            => '',
+					'image_required' => 'true',
+					'not'            => '',
+					'post_type'      => 'post',
+					'search'         => '',
+					'show'           => 'title, image, excerpt',
+					'size'           => 'large',
+					'taxonomy'       => '',
+					'terms'          => '',
 				),
 				array_change_key_case( array_filter( (array) $atts ), CASE_LOWER ),
 				self::SHORTCODE
@@ -86,6 +87,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			$show_image = in_array( 'image', $show, true );
 			$show_excerpt = in_array( 'excerpt', $show, true );
 			$show_content = in_array( 'content', $show, true );
+
+			$image_required = wp_validate_boolean( $atts['image_required'] );
 
 			// Check for featured image support
 			if ( $show_image && ! current_theme_supports( 'post-thumbnails' ) ) {
@@ -175,7 +178,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				}
 			}
 
-			if ( $show_image ) {
+			// Only fetch posts with images?
+			if ( $show_image && $image_required ) {
 				$query_args['meta_query'] = [ [ 'key' => '_thumbnail_id' ] ];
 			}
 
@@ -186,7 +190,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 
 			if ( ! $query->have_posts() ) {
 				return self::error(
-					__( 'Sorry, no matching posts were found. Your query may be too restrictive. Please check your shortcode implementation.', 'random-post-on-refresh' )
+					__( 'Sorry, no matching posts were found. Your query may be too restrictive. Please check your shortcode implementation.', 'random-post-on-refresh' ) .
+					( $image_required ? ' ' . __( 'Currently, only posts with featured images will be shown. Perhaps try setting the "image_required" property to "false"?', 'random-post-on-refresh' ) : '' )
 				);
 			}
 
@@ -199,7 +204,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			 */
 			$post = $posts[ array_rand( $posts ) ];
 
-			if ( $show_image && ! has_post_thumbnail( $post ) ) {
+			if ( $show_image && $image_required && ! has_post_thumbnail( $post ) ) {
 				return self::error(
 					__( 'Sorry, the selected post does not have a featured image.', 'random-post-on-refresh' )
 				);
@@ -217,7 +222,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 								$display['title'] = $show_title ? sprintf( '<span class="random-post-on-refresh__title">%s</span>', esc_html( get_the_title( $post ) ) ) : '';
 								break;
 							case 'image':
-								$display['image'] = $show_image ? sprintf( '<span class="random-post-on-refresh__image">%s</span>', get_the_post_thumbnail( $post, $image_size ) ) : '';
+								$display['image'] = $show_image && has_post_thumbnail( $post ) ? sprintf( '<span class="random-post-on-refresh__image">%s</span>', get_the_post_thumbnail( $post, $image_size ) ) : '';
 								break;
 							case 'excerpt':
 								$display['excerpt'] = $show_excerpt ? sprintf( '<span class="random-post-on-refresh__excerpt">%s</span>', self::get_the_excerpt( $post ) ) : '';
@@ -304,10 +309,15 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			if ( current_user_can( 'edit_posts', get_the_ID() ) ) {
 
 				return sprintf(
-					'<div class="random-post-on-refresh-error"><p>%s</p>%s<p>%s</p></div>',
+					'<div class="random-post-on-refresh-error"><p>%1$s</p>%2$s<p>%3$s</p><p>%4$s</p></div>',
 					esc_html( $message ),
 					empty( $example ) ? '' : '<p>' . esc_html( $example ) . '</p>',
-					esc_html( 'Note: This helpful notification is only visible to logged in users who can edit this shortcode.' )
+					sprintf(
+						'<a href="%1$s" target="_blank" rel="noreferrer noopener">%2$s</a>',
+						'https://wordpress.org/plugins/random-post-on-refresh/#faq-header',
+						__( 'Consult the documentation', 'random-post-on-refresh' )
+					),
+					esc_html__( 'Note: This helpful notification is only visible to logged in users who can edit this shortcode.', 'random-post-on-refresh' )
 				);
 
 			}

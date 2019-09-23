@@ -1,0 +1,103 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Random Post on Refresh\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-23 16:12+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.0; wp-5.2.3"
+
+#: RandomPostOnRefresh.php:318
+msgid "Consult the documentation"
+msgstr ""
+
+#: RandomPostOnRefresh.php:194
+msgid ""
+"Currently, only posts with featured images will be shown. Perhaps try "
+"setting the \"image_required\" property to \"false\"?"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://wpscholar.com/wordpress-plugins/random-post-on-refresh/"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://wpscholar.com"
+msgstr ""
+
+#. Author of the plugin
+msgid "Micah Wood"
+msgstr ""
+
+#: RandomPostOnRefresh.php:320
+msgid ""
+"Note: This helpful notification is only visible to logged in users who can "
+"edit this shortcode."
+msgstr ""
+
+#. Name of the plugin
+msgid "Random Post on Refresh"
+msgstr ""
+
+#. Description of the plugin
+msgid "Show a random post on every page load."
+msgstr ""
+
+#: RandomPostOnRefresh.php:193 svn/trunk/RandomPostOnRefresh.php:189
+msgid ""
+"Sorry, no matching posts were found. Your query may be too restrictive. "
+"Please check your shortcode implementation."
+msgstr ""
+
+#. %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
+#: RandomPostOnRefresh.php:137 svn/trunk/RandomPostOnRefresh.php:134
+#, php-format
+msgid ""
+"Sorry, post type \"%1$s\" is invalid. Valid options are: %2$s. Please check "
+"your shortcode implementation."
+msgstr ""
+
+#. %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
+#: RandomPostOnRefresh.php:106 svn/trunk/RandomPostOnRefresh.php:103
+#, php-format
+msgid ""
+"Sorry, taxonomy \"%1$s\" is invalid. Valid options are: %2$s. Please check "
+"your shortcode implementation."
+msgstr ""
+
+#: svn/tags/1.0/RandomPostOnRefresh.php:92
+#, php-format
+msgid ""
+"Sorry, taxonomy \"%s\" is invalid. Valid options are: %s. Please check your "
+"shortcode implementation."
+msgstr ""
+
+#: RandomPostOnRefresh.php:209 svn/trunk/RandomPostOnRefresh.php:204
+msgid "Sorry, the selected post does not have a featured image."
+msgstr ""
+
+#: RandomPostOnRefresh.php:124 svn/trunk/RandomPostOnRefresh.php:121
+msgid ""
+"Sorry, you cannot use the taxonomy attribute without the terms attribute. "
+"Please check your shortcode implementation."
+msgstr ""
+
+#: RandomPostOnRefresh.php:117 svn/trunk/RandomPostOnRefresh.php:114
+msgid ""
+"Sorry, you cannot use the terms attribute without the taxonomy attribute. "
+"Please check your shortcode implementation."
+msgstr ""
+
+#: RandomPostOnRefresh.php:96 svn/trunk/RandomPostOnRefresh.php:93
+msgid ""
+"Sorry, your theme does not support featured images. Update the \"show\" "
+"attribute to exclude the \"image\" option."
+msgstr ""

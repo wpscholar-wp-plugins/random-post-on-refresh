@@ -1,10 +1,10 @@
 === Random Post on Refresh ===
-Contributors: woodent, wpscholar, Imzodigital
+Contributors: wpscholar, Imzodigital
 Donate link: https://www.paypal.me/wpscholar
 Tags: random post, post rotation, different post
 Requires at least: 4.5
 Tested up to: 5.2.3
-Stable tag: 1.1.1
+Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,6 +57,8 @@ The `[random_post_on_refresh]` shortcode supports a few attributes to give you m
 
 * **ids** - Provide a comma-separated list of post IDs to pull random posts from.  Example: `[random_post_on_refresh ids="19, 87, 113, 997"]`
 
+* **image_required** - Only applies when the `show` attribute contains `image`. This attribute defaults to `true` and will cause WordPress to filter out any posts without images. If set to `false`, then posts with or without images will be shown.  Example: `[random_post_on_refresh show="title, image" image_required="false"]`
+
 * **not** - Provide a comma-separated list of post IDs to exclude. Example: `[random_post_on_refresh not="3, 456, 876"]`
 
 * **post_type** - Provide a post type or a comma-separated list of post types to pull from. You must use the internal post type name. Default is `post`. Example: `[random_post_on_refresh post_type="page"]`
@@ -76,6 +78,11 @@ The `[random_post_on_refresh]` shortcode supports a few attributes to give you m
 Keep in mind that any of these attributes can be combined as needed.  Example: `[random_post_on_refresh author="19" size="full" not="2310"]`.  Also, keep in mind that the shortcode can be used in text widgets.
 
 == Changelog ==
+
+= 1.2 =
+
+* Added a shortcode attribute to allow posts without images to be shown when the `show` attribute contains `image`.
+* Bug fix for certain strings not being translatable.
 
 = 1.1.1 =
 
@@ -101,4 +108,8 @@ Keep in mind that any of these attributes can be combined as needed.  Example: `
 = 1.1.1 =
 
 * Bug fix for how post excerpts are generated. Tested with WordPress 5.2.3.
+
+= 1.2 =
+
+* Minor bug fixes and improvements.
 
