@@ -3,7 +3,8 @@ Contributors: wpscholar, Imzodigital
 Donate link: https://www.paypal.me/wpscholar
 Tags: random post, post rotation, different post
 Requires at least: 4.5
-Tested up to: 5.2.3
+Requires PHP: 5.4
+Tested up to: 5.4
 Stable tag: 1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
