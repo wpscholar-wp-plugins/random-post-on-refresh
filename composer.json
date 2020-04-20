@@ -1,14 +1,23 @@
 {
-    "name": "wpscholar/random-post-on-refresh",
-    "description": "",
-    "license": "GPL-2.0+",
-    "type": "wordpress-plugin",
-    "authors": [
-        {
-            "name": "Micah Wood",
-            "email": "micah@wpscholar.com",
-            "homepage": "http://wpscholar.com",
-            "role": "Developer"
-        }
-    ]
+  "name": "wpscholar/random-post-on-refresh",
+  "description": "Show a random post on every page load.",
+  "license": "GPL-2.0+",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Micah Wood",
+      "homepage": "http://wpscholar.com"
+    }
+  ],
+  "require-dev": {
+    "wpscholar/phpcs-standards-wpscholar": "@stable"
+  },
+  "scripts": {
+    "fix": "vendor/bin/phpcbf . -s",
+    "lint": "vendor/bin/phpcs . -s"
+  },
+  "scripts-descriptions": {
+    "fix": "Automatically fix coding standards issues where possible.",
+    "lint": "Check files against coding standards."
+  }
 }
