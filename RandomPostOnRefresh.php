@@ -1,16 +1,25 @@
 <?php
+/**
+ * Main plugin file.
+ *
+ * @package RandomPostOnRefresh
+ */
 
 /*
  * Plugin Name: Random Post on Refresh
  * Description: Show a random post on every page load.
  * Plugin URI: http://wpscholar.com/wordpress-plugins/random-post-on-refresh/
+ * Version: 1.2
  * Author: Micah Wood
  * Author URI: https://wpscholar.com
- * Version: 1.2
+ * Requires at least: 4.5
+ * Requires PHP: 5.4
  * Text Domain: random-post-on-refresh
+ * Domain Path: languages
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Copyright 2018-2019 by Micah Wood - All rights reserved.
+ *
+ * Copyright 2018-2020 by Micah Wood - All rights reserved.
  */
 
 if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
@@ -80,11 +89,11 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				)
 			);
 
-			$can_show = [ 'title', 'image', 'excerpt', 'content' ];
-			$show = array_merge( ...$groups );
+			$can_show = array( 'title', 'image', 'excerpt', 'content' );
+			$show     = array_merge( ...$groups );
 
-			$show_title = in_array( 'title', $show, true );
-			$show_image = in_array( 'image', $show, true );
+			$show_title   = in_array( 'title', $show, true );
+			$show_image   = in_array( 'image', $show, true );
 			$show_excerpt = in_array( 'excerpt', $show, true );
 			$show_content = in_array( 'content', $show, true );
 
@@ -136,17 +145,17 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 						// Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
 							__( 'Sorry, post type "%1$s" is invalid. Valid options are: %2$s. Please check your shortcode implementation.', 'random-post-on-refresh' ),
 							$post_type,
-							implode( ', ', get_post_types( [ 'public' => true ] ) )
+							implode( ', ', get_post_types( array( 'public' => true ) ) )
 						),
 						'[' . self::SHORTCODE . ' post_type="' . $atts['post_type'] . '"]'
 					);
 				}
 			}
 
-			$query_args = [
+			$query_args = array(
 				'post_type'      => $post_types,
 				'posts_per_page' => 100,
-			];
+			);
 
 			if ( ! empty( $atts['author'] ) ) {
 				$query_args['author__in'] = self::parse_id_list( $atts['author'] );
@@ -171,16 +180,16 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				} elseif ( 'post_tag' === $atts['taxonomy'] ) {
 					$query_args['tag__in'] = $terms;
 				} else {
-					$query_args['tax_query'] = [
+					$query_args['tax_query'] = array(
 						'taxonomy' => $atts['taxonomy'],
 						'terms'    => self::parse_id_list( $atts['terms'] ),
-					];
+					);
 				}
 			}
 
 			// Only fetch posts with images?
 			if ( $show_image && $image_required ) {
-				$query_args['meta_query'] = [ [ 'key' => '_thumbnail_id' ] ];
+				$query_args['meta_query'] = array( array( 'key' => '_thumbnail_id' ) );
 			}
 
 			// Never load the current post.
@@ -210,7 +219,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				);
 			}
 
-			$display = [];
+			$display = array();
 			foreach ( $groups as $items ) {
 				if ( count( $groups ) > 1 ) {
 					$display[] = '<span class="random-post-on-refresh__group">';
@@ -244,10 +253,10 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 					implode(
 						' ',
 						array_filter(
-							[
+							array(
 								count( $groups ) > 1 ? '--has-groups' : '',
 								$atts['class'],
-							]
+							)
 						)
 					)
 				),
