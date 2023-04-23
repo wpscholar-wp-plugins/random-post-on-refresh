@@ -21,7 +21,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.1.5",
     "node-wp-i18n": "^1.2.3",
-    "yaml-lint": "^1.2.4"
+    "yaml-lint": "^1.7.0"
   },
   "husky": {
     "hooks": {
