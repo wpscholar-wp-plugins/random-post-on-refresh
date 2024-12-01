@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Plugin Name: Random Post on Refresh
  * Description: Show a random post on every page load.
  * Plugin URI: http://wpscholar.com/wordpress-plugins/random-post-on-refresh/
