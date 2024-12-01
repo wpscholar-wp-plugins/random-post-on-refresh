@@ -1,95 +1,82 @@
-# Copyright (C) 2020 Micah Wood
+# Copyright (C) 2024 Micah Wood
 # This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Random Post on Refresh 1.2\n"
-"Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/random-post-on-refresh\n"
-"POT-Creation-Date: 2020-04-20 14:06:59+00:00\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Project-Id-Version: Random Post on Refresh 1.2.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/random-post-on-refresh\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: node-wp-i18n 1.2.3\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: random-post-on-refresh\n"
 
-#: RandomPostOnRefresh.php:100
-msgid ""
-"Sorry, your theme does not support featured images. Update the \"show\" "
-"attribute to exclude the \"image\" option."
-msgstr ""
-
-#: RandomPostOnRefresh.php:110
-#. Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is
-#. replaced with a comma-separated list of available taxonomies.
-msgid ""
-"Sorry, taxonomy \"%1$s\" is invalid. Valid options are: %2$s. Please check "
-"your shortcode implementation."
-msgstr ""
-
-#: RandomPostOnRefresh.php:121
-msgid ""
-"Sorry, you cannot use the terms attribute without the taxonomy attribute. "
-"Please check your shortcode implementation."
-msgstr ""
-
-#: RandomPostOnRefresh.php:128
-msgid ""
-"Sorry, you cannot use the taxonomy attribute without the terms attribute. "
-"Please check your shortcode implementation."
-msgstr ""
-
-#: RandomPostOnRefresh.php:141
-#. Translators: %1$s is replaced with post_type shortcode argument and %2$s is
-#. replaced with a comma-separated list of available post types.
-msgid ""
-"Sorry, post type \"%1$s\" is invalid. Valid options are: %2$s. Please check "
-"your shortcode implementation."
-msgstr ""
-
-#: RandomPostOnRefresh.php:197
-msgid ""
-"Sorry, no matching posts were found. Your query may be too restrictive. "
-"Please check your shortcode implementation."
-msgstr ""
-
-#: RandomPostOnRefresh.php:198
-msgid ""
-"Currently, only posts with featured images will be shown. Perhaps try "
-"setting the \"image_required\" property to \"false\"?"
-msgstr ""
-
-#: RandomPostOnRefresh.php:213
-msgid "Sorry, the selected post does not have a featured image."
-msgstr ""
-
-#: RandomPostOnRefresh.php:322
-msgid "Consult the documentation"
-msgstr ""
-
-#: RandomPostOnRefresh.php:324
-msgid ""
-"Note: This helpful notification is only visible to logged in users who can "
-"edit this shortcode."
-msgstr ""
-
-#. Plugin Name of the plugin/theme
+#. Plugin Name of the plugin
+#: RandomPostOnRefresh.php
 msgid "Random Post on Refresh"
 msgstr ""
 
-#. Plugin URI of the plugin/theme
+#. Plugin URI of the plugin
+#: RandomPostOnRefresh.php
 msgid "http://wpscholar.com/wordpress-plugins/random-post-on-refresh/"
 msgstr ""
 
-#. Description of the plugin/theme
+#. Description of the plugin
+#: RandomPostOnRefresh.php
 msgid "Show a random post on every page load."
 msgstr ""
 
-#. Author of the plugin/theme
+#. Author of the plugin
+#: RandomPostOnRefresh.php
 msgid "Micah Wood"
 msgstr ""
 
-#. Author URI of the plugin/theme
+#. Author URI of the plugin
+#: RandomPostOnRefresh.php
 msgid "https://wpscholar.com"
+msgstr ""
+
+#: RandomPostOnRefresh.php:101
+msgid "Sorry, your theme does not support featured images. Update the \"show\" attribute to exclude the \"image\" option."
+msgstr ""
+
+#. Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
+#: RandomPostOnRefresh.php:111
+msgid "Sorry, taxonomy \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
+msgstr ""
+
+#: RandomPostOnRefresh.php:122
+msgid "Sorry, you cannot use the terms attribute without the taxonomy attribute. Please check your shortcode implementation."
+msgstr ""
+
+#: RandomPostOnRefresh.php:129
+msgid "Sorry, you cannot use the taxonomy attribute without the terms attribute. Please check your shortcode implementation."
+msgstr ""
+
+#. Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
+#: RandomPostOnRefresh.php:142
+msgid "Sorry, post type \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
+msgstr ""
+
+#: RandomPostOnRefresh.php:200
+msgid "Sorry, no matching posts were found. Your query may be too restrictive. Please check your shortcode implementation."
+msgstr ""
+
+#: RandomPostOnRefresh.php:201
+msgid "Currently, only posts with featured images will be shown. Perhaps try setting the \"image_required\" property to \"false\"?"
+msgstr ""
+
+#: RandomPostOnRefresh.php:216
+msgid "Sorry, the selected post does not have a featured image."
+msgstr ""
+
+#: RandomPostOnRefresh.php:325
+msgid "Consult the documentation"
+msgstr ""
+
+#: RandomPostOnRefresh.php:327
+msgid "Note: This helpful notification is only visible to logged in users who can edit this shortcode."
 msgstr ""
