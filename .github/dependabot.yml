@@ -37,3 +37,20 @@ updates:
         url: https://npm.pkg.github.com
         token: ${{ secrets.NEWFOLD_ACCESS_TOKEN }}
         replaces-base: true
+
+  # Maintain dependencies for Composer
+  - package-ecosystem: "composer"
+    directory: "/"
+    target-branch: "develop"
+    schedule:
+      interval: "daily"
+    allow:
+      - dependency-type: direct
+    versioning-strategy: increase
+    commit-message:
+      prefix: "Composer"
+      prefix-development: "Composer Dev"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "php"
