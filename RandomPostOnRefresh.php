@@ -268,14 +268,14 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		/**
 		 * Parse an ID list into an array.
 		 *
-		 * @param string $list A comma separated list of IDs
+		 * @param string $id_list A comma separated list of IDs
 		 *
 		 * @return int[]
 		 */
-		public static function parse_id_list( $list ) {
+		public static function parse_id_list( $id_list ) {
 			$ids = array();
-			if ( ! empty( $list ) ) {
-				$ids = array_filter( array_map( 'absint', explode( ',', preg_replace( '#[^0-9,]#', '', $list ) ) ) );
+			if ( ! empty( $id_list ) ) {
+				$ids = array_filter( array_map( 'absint', explode( ',', preg_replace( '#[^0-9,]#', '', $id_list ) ) ) );
 			}
 
 			return $ids;
