@@ -332,9 +332,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			}
 
 			return '';
-
 		}
-
 	}
 
 	RandomPostOnRefresh::initialize();
