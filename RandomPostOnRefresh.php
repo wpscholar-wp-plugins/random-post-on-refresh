@@ -19,7 +19,7 @@
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
- * Copyright 2018-2020 by Micah Wood - All rights reserved.
+ * Copyright 2018-2024 by Micah Wood - All rights reserved.
  */
 
 if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
