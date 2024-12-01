@@ -1,10 +1,4 @@
 <?php
-/**
- * Main plugin file.
- *
- * @package RandomPostOnRefresh
- */
-
 /*
  * Plugin Name: Random Post on Refresh
  * Description: Show a random post on every page load.
@@ -20,6 +14,8 @@
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
  * Copyright 2018-2024 by Micah Wood - All rights reserved.
+ *
+ * @package RandomPostOnRefresh
  */
 
 if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
