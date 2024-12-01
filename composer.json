@@ -10,7 +10,9 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": ">=5.4"
+    },
+    "require-dev": {
         "wpscholar/phpcs-standards-wpscholar": "^1.0",
         "wp-cli/wp-cli-bundle": "^2.11"
     },
