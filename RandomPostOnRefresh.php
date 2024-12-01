@@ -286,13 +286,13 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		/**
 		 * Convert a list (string) to an array
 		 *
-		 * @param string $list A delimiter separated list of items
+		 * @param string $separated_list A delimiter separated list of items
 		 * @param string $delimiter The delimiter used to separate items.
 		 *
 		 * @return array
 		 */
-		public static function list_to_array( $list, $delimiter = ',' ) {
-			return array_filter( array_map( 'trim', explode( $delimiter, $list ) ) );
+		public static function list_to_array( $separated_list, $delimiter = ',' ) {
+			return array_filter( array_map( 'trim', explode( $delimiter, $separated_list ) ) );
 		}
 
 		/**
