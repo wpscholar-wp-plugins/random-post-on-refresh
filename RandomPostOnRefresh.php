@@ -9,7 +9,7 @@
  * Requires at least: 4.5
  * Requires PHP: 5.4
  * Text Domain: random-post-on-refresh
- * Domain Path: languages
+ * Domain Path: /languages
  * License: GPL3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  *
