@@ -74,9 +74,6 @@ jobs:
       - name: Install PHP Dependencies
         run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
 
-      - name: Generate .pot file
-        run: composer run i18n
-
       - name: Remove development files
         run: .github/scripts/cleanup.sh
 
