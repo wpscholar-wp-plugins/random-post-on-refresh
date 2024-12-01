@@ -80,6 +80,11 @@ Keep in mind that any of these attributes can be combined as needed.  Example: `
 
 == Changelog ==
 
+= 1.2.1 =
+
+* General maintenance
+* Allow filtering of query args
+
 = 1.2 =
 
 * Added a shortcode attribute to allow posts without images to be shown when the `show` attribute contains `image`.
