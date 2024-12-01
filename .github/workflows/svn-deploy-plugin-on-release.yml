@@ -10,7 +10,63 @@ jobs:
     name: On Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Set Package Name
+        id: package
+        env:
+          REPO: ${{ github.repository }}
+        run: echo "PACKAGE=${REPO##*/}" >> $GITHUB_OUTPUT
+
+      - name: PHP version
+        run: php --version
+
+      - name: Set Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Node version
+        run: node --version
+
+      - name: NPM version
+        run: npm --version
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: echo "dir=$(npm config get cache)" >> $GITHUB_OUTPUT
+
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: npm install
+        run: npm install
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer vendor directory
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: Install PHP Dependencies
+        run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
+
       - name: WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@master
         env:
