@@ -27,6 +27,21 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 
 		const SHORTCODE = 'random_post_on_refresh';
 
+		const DEFAULT_ATTRIBUTES = array(
+			'author'         => '',
+			'class'          => '',
+			'ids'            => '',
+			'image_required' => 'true',
+			'not'            => '',
+			'post_type'      => 'post',
+			'posts_per_page' => 100,
+			'search'         => '',
+			'show'           => 'title, image, excerpt',
+			'size'           => 'large',
+			'taxonomy'       => '',
+			'terms'          => '',
+		);
+
 		/**
 		 * Initialize the plugin.
 		 */
@@ -64,20 +79,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			wp_enqueue_style( self::SHORTCODE );
 
 			$atts = shortcode_atts(
-				array(
-					'author'         => '',
-					'class'          => '',
-					'ids'            => '',
-					'image_required' => 'true',
-					'not'            => '',
-					'post_type'      => 'post',
-					'posts_per_page' => 100,
-					'search'         => '',
-					'show'           => 'title, image, excerpt',
-					'size'           => 'large',
-					'taxonomy'       => '',
-					'terms'          => '',
-				),
+				self::DEFAULT_ATTRIBUTES,
 				array_change_key_case( array_filter( (array) $atts ), CASE_LOWER ),
 				self::SHORTCODE
 			);
