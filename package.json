@@ -5,8 +5,9 @@
   "scripts": {
     "test": "npm run test:phpunit",
     "lint": "npx yamllint **/*.yml",
-    "start:env": "wp-env start",
-    "stop:env": "wp-env stop",
+    "env:start": "wp-env start",
+    "env:stop": "wp-env stop",
+    "env:destroy": "wp-env destroy",
     "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh phpunit"
   },
   "repository": {
