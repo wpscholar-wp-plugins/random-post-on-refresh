@@ -64,6 +64,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 					'image_required' => 'true',
 					'not'            => '',
 					'post_type'      => 'post',
+					'posts_per_page' => 100,
 					'search'         => '',
 					'show'           => 'title, image, excerpt',
 					'size'           => 'large',
@@ -232,7 +233,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 
 			$query_args = array(
 				'post_type'      => $post_types,
-				'posts_per_page' => 100,
+				'posts_per_page' => $atts['posts_per_page'],
 			);
 
 			if ( ! empty( $atts['author'] ) ) {
