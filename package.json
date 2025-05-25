@@ -8,7 +8,7 @@
     "env:start": "wp-env start",
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
-    "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh phpunit"
+    "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh vendor/bin/phpunit"
   },
   "repository": {
     "type": "git",
