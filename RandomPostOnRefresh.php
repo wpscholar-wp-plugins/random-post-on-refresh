@@ -148,50 +148,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				}
 			}
 
-			$query_args = array(
-				'post_type'      => $post_types,
-				'posts_per_page' => 100,
-			);
-
-			if ( ! empty( $atts['author'] ) ) {
-				$query_args['author__in'] = self::parse_id_list( $atts['author'] );
-			}
-
-			if ( ! empty( $atts['ids'] ) ) {
-				$query_args['post__in'] = self::parse_id_list( $atts['ids'] );
-			}
-
-			if ( ! empty( $atts['not'] ) ) {
-				$query_args['post__not_in'] = self::parse_id_list( $atts['not'] );
-			}
-
-			if ( ! empty( $atts['search'] ) ) {
-				$query_args['s'] = self::parse_id_list( $atts['search'] );
-			}
-
-			if ( ! empty( $atts['taxonomy'] ) && ! empty( $atts['terms'] ) ) {
-				$terms = self::parse_id_list( $atts['terms'] );
-				if ( 'category' === $atts['taxonomy'] ) {
-					$query_args['category__in'] = $terms;
-				} elseif ( 'post_tag' === $atts['taxonomy'] ) {
-					$query_args['tag__in'] = $terms;
-				} else {
-					$query_args['tax_query'] = array(
-						'taxonomy' => $atts['taxonomy'],
-						'terms'    => self::parse_id_list( $atts['terms'] ),
-					);
-				}
-			}
-
-			// Only fetch posts with images?
-			if ( $show_image && $image_required ) {
-				$query_args['meta_query'] = array( array( 'key' => '_thumbnail_id' ) );
-			}
-
-			// Never load the current post.
-			$query_args['post__not_in'][] = get_the_ID();
-
-			$query_args = apply_filters( 'random_post_on_refresh_query_args', $query_args, $atts );
+			// Build query args using the new method
+			$query_args = self::build_query_args( $atts );
 
 			$query = new WP_Query( $query_args );
 
@@ -261,6 +219,61 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 				esc_url( get_the_permalink( $post ) ),
 				implode( '', array_filter( $display ) )
 			);
+		}
+
+		/**
+		 * Build WP_Query arguments from shortcode attributes.
+		 *
+		 * @param array $atts Shortcode attributes
+		 * @return array Query arguments for WP_Query
+		 */
+		public static function build_query_args( $atts ) {
+			$post_types = array_filter( array_map( 'trim', explode( ',', $atts['post_type'] ) ) );
+
+			$query_args = array(
+				'post_type'      => $post_types,
+				'posts_per_page' => 100,
+			);
+
+			if ( ! empty( $atts['author'] ) ) {
+				$query_args['author__in'] = self::parse_id_list( $atts['author'] );
+			}
+
+			if ( ! empty( $atts['ids'] ) ) {
+				$query_args['post__in'] = self::parse_id_list( $atts['ids'] );
+			}
+
+			if ( ! empty( $atts['not'] ) ) {
+				$query_args['post__not_in'] = self::parse_id_list( $atts['not'] );
+			}
+
+			if ( ! empty( $atts['search'] ) ) {
+				$query_args['s'] = $atts['search'];
+			}
+
+			if ( ! empty( $atts['taxonomy'] ) && ! empty( $atts['terms'] ) ) {
+				$terms = self::parse_id_list( $atts['terms'] );
+				if ( 'category' === $atts['taxonomy'] ) {
+					$query_args['category__in'] = $terms;
+				} elseif ( 'post_tag' === $atts['taxonomy'] ) {
+					$query_args['tag__in'] = $terms;
+				} else {
+					$query_args['tax_query'] = array(
+						'taxonomy' => $atts['taxonomy'],
+						'terms'    => $terms,
+					);
+				}
+			}
+
+			// Only fetch posts with images?
+			if ( ! empty( $atts['show'] ) && strpos( $atts['show'], 'image' ) !== false && wp_validate_boolean( $atts['image_required'] ) ) {
+				$query_args['meta_query'] = array( array( 'key' => '_thumbnail_id' ) );
+			}
+
+			// Never load the current post.
+			$query_args['post__not_in'][] = get_the_ID();
+
+			return $query_args;
 		}
 
 		/**
