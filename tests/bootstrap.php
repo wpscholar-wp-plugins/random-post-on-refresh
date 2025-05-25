@@ -5,6 +5,9 @@
  * @package RandomPostOnRefresh
  */
 
+// Load the Composer autoloader.
+require_once dirname( __DIR__ ) . '/vendor/autoload.php';
+
 // Load the plugin.
 require_once dirname( __DIR__ ) . '/RandomPostOnRefresh.php';
 
