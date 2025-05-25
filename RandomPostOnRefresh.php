@@ -240,7 +240,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 
 			$query_args = array(
 				'post_type'      => $post_types,
-				'posts_per_page' => $atts['posts_per_page'],
+				'posts_per_page' => absint( $atts['posts_per_page'] ),
 			);
 
 			if ( ! empty( $atts['author'] ) ) {
