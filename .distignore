@@ -5,6 +5,7 @@
 .github
 .wporg
 node_modules
+tests
 
 # Files
 .distignore
@@ -19,6 +20,7 @@ package.json
 package-lock.json
 phpunit.xml
 phpunit.xml.dist
+.phpunit.result.cache
 readme.md
 README.md
 wp-cli.local.yml
