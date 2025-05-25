@@ -34,8 +34,8 @@ Using this plugin is simple:
 If you don't meet the below requirements, I highly recommend you upgrade your WordPress install or move to a web host
 that supports a more recent version of PHP.
 
-* Requires WordPress version 3.2 or greater
-* Requires PHP version 5 or greater ( PHP version 5.2.4 is required to run WordPress version 3.2 )
+* Requires WordPress version 6.4 or greater
+* Requires PHP version 7.4 or greater
 
 = The Easy Way =
 
@@ -63,6 +63,8 @@ The `[random_post_on_refresh]` shortcode supports a few attributes to give you m
 * **not** - Provide a comma-separated list of post IDs to exclude. Example: `[random_post_on_refresh not="3, 456, 876"]`
 
 * **post_type** - Provide a post type or a comma-separated list of post types to pull from. You must use the internal post type name. Default is `post`. Example: `[random_post_on_refresh post_type="page"]`
+
+* **posts_per_page** - Provide the number of posts to fetch. Defaults to 100. Posts are randomly selected from the posts fetched.
 
 * **search** - Provide a custom search term to limit the random posts returned.  Example: `[random_post_on_refresh search="relativity"]`
 
