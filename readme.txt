@@ -62,6 +62,10 @@ The `[random_post_on_refresh]` shortcode supports a few attributes to give you m
 
 * **not** - Provide a comma-separated list of post IDs to exclude. Example: `[random_post_on_refresh not="3, 456, 876"]`
 
+* **order** - Can be either 'asc' or 'desc'. Defaults to 'desc'.
+
+* **orderby** - Customize how WordPress orders the fetched results. See https://developer.wordpress.org/reference/classes/wp_query/#order-orderby-parameters
+
 * **post_type** - Provide a post type or a comma-separated list of post types to pull from. You must use the internal post type name. Default is `post`. Example: `[random_post_on_refresh post_type="page"]`
 
 * **posts_per_page** - Provide the number of posts to fetch. Defaults to 100. Posts are randomly selected from the posts fetched.
