@@ -274,6 +274,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			// Never load the current post.
 			$query_args['post__not_in'][] = get_the_ID();
 
+			$query_args = apply_filters( 'random_post_on_refresh_query_args', $query_args, $atts );
+
 			return $query_args;
 		}
 
