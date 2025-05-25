@@ -33,7 +33,7 @@ jobs:
       - name: Set Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
 
       - name: Node version
         run: node --version
@@ -74,8 +74,20 @@ jobs:
       - name: Install PHP Dependencies
         run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
 
-      - name: Remove development files
-        run: .github/scripts/cleanup.sh
+      - name: Setup workflow context
+        id: workflow
+        working-directory: ${{ runner.temp }}
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          mkdir dist
+          echo "DIST=${PWD}/dist" >> $GITHUB_OUTPUT
+
+      - name: Prepare files
+        run: rsync -r --include-from=.distinclude --exclude-from=.distignore . ${{ steps.workflow.outputs.DIST }}
+
+      - name: Create Zip
+        run: zip -r ${{ steps.package.outputs.PACKAGE }}.zip ${{ steps.workflow.outputs.DIST }}
 
       - name: List Files
         run: ls -lah
@@ -83,4 +95,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.package.outputs.PACKAGE }}
-          path: ./
+          path: ${{ steps.workflow.outputs.DIST }}

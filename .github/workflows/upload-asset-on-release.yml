@@ -34,7 +34,7 @@ jobs:
       - name: Set Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.x
+          node-version: 22.x
 
       - name: Node version
         run: node --version
@@ -75,11 +75,20 @@ jobs:
       - name: Install PHP Dependencies
         run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
 
-      - name: Remove development files
-        run: .github/scripts/cleanup.sh
+      - name: Setup workflow context
+        id: workflow
+        working-directory: ${{ runner.temp }}
+        env:
+          REPO: ${{ github.repository }}
+        run: |
+          mkdir dist
+          echo "DIST=${PWD}/dist" >> $GITHUB_OUTPUT
+
+      - name: Prepare files
+        run: rsync -r --include-from=.distinclude --exclude-from=.distignore . ${{ steps.workflow.outputs.DIST }}
 
       - name: Create Zip
-        run: zip -r ${{ steps.package.outputs.PACKAGE }}.zip .
+        run: zip -r ${{ steps.package.outputs.PACKAGE }}.zip ${{ steps.workflow.outputs.DIST }}
 
       - name: List Files
         run: ls -lah
@@ -91,6 +100,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: https://uploads.github.com/repos/${{ github.repository }}/releases/${{ github.event.release.id }}/assets{?name,label}
-          asset_path: ./${{ steps.package.outputs.PACKAGE }}.zip
+          asset_path: ${{ steps.workflow.outputs.DIST }}/${{ steps.package.outputs.PACKAGE }}.zip
           asset_name: ${{ steps.package.outputs.PACKAGE }}.zip
           asset_content_type: application/zip
