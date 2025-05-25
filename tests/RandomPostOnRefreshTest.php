@@ -62,6 +62,10 @@ class RandomPostOnRefreshTest extends TestCase {
 		$this->assertArrayNotHasKey( 'post__in', $args );
 		// Not
 		$this->assertArrayHasKey( 'post__not_in', $args ); // This should always be set
+		// Order
+		$this->assertEquals( 'DESC', $args['order'] );
+		// Orderby
+		$this->assertEquals( 'date', $args['orderby'] );
 		// Post type
 		$this->assertEquals( array( 'post' ), $args['post_type'] );
 		// Posts per page
@@ -146,5 +150,21 @@ class RandomPostOnRefreshTest extends TestCase {
 		$args = RandomPostOnRefresh::build_query_args( $atts );
 		$this->assertArrayHasKey( 'meta_query', $args );
 		$this->assertEquals( array( array( 'key' => '_thumbnail_id' ) ), $args['meta_query'] );
+	}
+
+	/**
+	 * Test build_query_args with orderby=random and order=invalid.
+	 */
+	public function test_build_query_args_with_random_order() {
+		$atts = array_merge(
+			RandomPostOnRefresh::DEFAULT_ATTRIBUTES,
+			array(
+				'orderby' => 'random',
+				'order'   => 'invalid',
+			)
+		);
+		$args = RandomPostOnRefresh::build_query_args( $atts );
+		$this->assertEquals( 'rand', $args['orderby'] );
+		$this->assertEquals( 'DESC', $args['order'] );
 	}
 }

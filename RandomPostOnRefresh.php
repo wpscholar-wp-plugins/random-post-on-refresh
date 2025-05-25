@@ -33,6 +33,8 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			'ids'            => '',
 			'image_required' => 'true',
 			'not'            => '',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
 			'post_type'      => 'post',
 			'posts_per_page' => 100,
 			'search'         => '',
@@ -240,9 +242,18 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		public static function build_query_args( $atts ) {
 			$post_types = array_filter( array_map( 'trim', explode( ',', $atts['post_type'] ) ) );
 
+			$orderby = $atts['orderby'];
+
+			// Just in case someone uses "random" instead of "rand".
+			if ( 'random' === $orderby ) {
+				$orderby = 'rand';
+			}
+
 			$query_args = array(
 				'post_type'      => $post_types,
 				'posts_per_page' => absint( $atts['posts_per_page'] ),
+				'orderby'        => $orderby,
+				'order'          => strtoupper( $atts['order'] ) === 'ASC' ? 'ASC' : 'DESC',
 			);
 
 			if ( ! empty( $atts['author'] ) ) {
