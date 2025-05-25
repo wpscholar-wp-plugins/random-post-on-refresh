@@ -50,4 +50,62 @@ class RandomPostOnRefreshTest extends TestCase {
 		$output = RandomPostOnRefresh::shortcode( array() );
 		$this->assertIsString( $output );
 	}
+
+	/**
+	 * Test build_query_args with minimal attributes.
+	 */
+	public function test_build_query_args_minimal() {
+		$atts = array(
+			'post_type' => 'post',
+		);
+		$args = RandomPostOnRefresh::build_query_args( $atts );
+		$this->assertEquals( array( 'post' ), $args['post_type'] );
+		$this->assertEquals( 100, $args['posts_per_page'] );
+		$this->assertArrayHasKey( 'post__not_in', $args );
+	}
+
+	/**
+	 * Test build_query_args with author, ids, not, and search.
+	 */
+	public function test_build_query_args_with_filters() {
+		$atts = array(
+			'post_type' => 'post',
+			'author'    => '1,2',
+			'ids'       => '10,20',
+			'not'       => '5,6',
+			'search'    => 'test',
+		);
+		$args = RandomPostOnRefresh::build_query_args( $atts );
+		$this->assertEquals( array( 1, 2 ), $args['author__in'] );
+		$this->assertEquals( array( 10, 20 ), $args['post__in'] );
+		$this->assertEquals( array( 5, 6, $args['post__not_in'][2] ), $args['post__not_in'] ); // The last value is get_the_ID(), which is 0 in CLI
+		$this->assertEquals( 'test', $args['s'] );
+	}
+
+	/**
+	 * Test build_query_args with taxonomy and terms.
+	 */
+	public function test_build_query_args_with_taxonomy() {
+		$atts = array(
+			'post_type' => 'post',
+			'taxonomy'  => 'category',
+			'terms'     => '3,4',
+		);
+		$args = RandomPostOnRefresh::build_query_args( $atts );
+		$this->assertEquals( array( 3, 4 ), $args['category__in'] );
+	}
+
+	/**
+	 * Test build_query_args with show=image and image_required=true.
+	 */
+	public function test_build_query_args_with_image_required() {
+		$atts = array(
+			'post_type'      => 'post',
+			'show'           => 'title, image',
+			'image_required' => 'true',
+		);
+		$args = RandomPostOnRefresh::build_query_args( $atts );
+		$this->assertArrayHasKey( 'meta_query', $args );
+		$this->assertEquals( array( array( 'key' => '_thumbnail_id' ) ), $args['meta_query'] );
+	}
 }
