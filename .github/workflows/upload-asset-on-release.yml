@@ -27,6 +27,10 @@ jobs:
           REPO: ${{ github.repository }}
         run: echo "PACKAGE=${REPO##*/}" >> $GITHUB_OUTPUT
 
+      - name: Set Version
+        id: tag
+        run: echo "VERSION=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
+
       - name: PHP version
         run: php --version
 
@@ -93,6 +97,6 @@ jobs:
         run: ls -lah
 
       - name: Upload Release Asset
-        run: gh release upload ${{ github.event.release.id }} ./${{ steps.package.outputs.PACKAGE }}.zip
+        run: gh release upload ${{ steps.tag.outputs.VERSION }} ./${{ steps.package.outputs.PACKAGE }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
