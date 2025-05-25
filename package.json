@@ -3,8 +3,11 @@
   "description": "Show a random post on every page load.",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx yamllint **/*.yml"
+    "test": "npm run test:phpunit",
+    "lint": "npx yamllint **/*.yml",
+    "start:env": "wp-env start",
+    "stop:env": "wp-env stop",
+    "test:phpunit": "wp-env run phpunit"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/wpscholar-wp-plugins/random-post-on-refresh#readme",
   "devDependencies": {
-    "yaml-lint": "^1.2.4"
+    "yaml-lint": "^1.2.4",
+    "@wordpress/env": "^10.24.0"
   }
 }
