@@ -50,9 +50,9 @@ jobs:
 
       - name: Run wp-env and PHPUnit tests
         run: |
-          npm run start:env
+          npm run env:start
           npm run test
 
       - name: Stop wp-env
         if: always()
-        run: npm run stop:env 
+        run: npm run env:stop 
