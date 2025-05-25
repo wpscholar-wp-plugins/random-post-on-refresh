@@ -23,7 +23,18 @@
       "vendor/bin/phpcbf ."
     ],
     "i18n": [
+      "composer run i18n:pot",
+      "composer run i18n:po",
+      "echo 'Add missing translation strings in .po files, then run composer run i18n:mo'"
+    ],
+    "i18n:pot": [
       "vendor/bin/wp i18n make-pot . ./languages/random-post-on-refresh.pot --headers='{\"POT-Creation-Date\":null}'"
+    ],
+    "i18n:po": [
+      "vendor/bin/wp i18n update-po ./languages/random-post-on-refresh.pot ./languages"
+    ],
+    "i18n:mo": [
+      "vendor/bin/wp i18n make-mo ./languages"
     ],
     "lint": [
       "vendor/bin/phpcs . -s"
