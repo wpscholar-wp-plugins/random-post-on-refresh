@@ -2,7 +2,7 @@
 Contributors: wpscholar, Imzodigital
 Donate link: https://www.paypal.me/wpscholar
 Tags: random post, post rotation, different post
-Requires at least: 6.0
+Requires at least: 6.4
 Requires PHP: 7.4
 Tested up to: 6.8
 Stable tag: 1.2.1
