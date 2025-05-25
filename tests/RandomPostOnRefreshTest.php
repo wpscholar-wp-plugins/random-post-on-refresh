@@ -87,12 +87,15 @@ class RandomPostOnRefreshTest extends TestCase {
 	 * Test build_query_args with author, ids, not, and search.
 	 */
 	public function test_build_query_args_with_filters() {
-		$atts = array(
-			'post_type' => 'post',
-			'author'    => '1,2',
-			'ids'       => '10,20',
-			'not'       => '5,6',
-			'search'    => 'test',
+		$atts = array_merge(
+			RandomPostOnRefresh::DEFAULT_ATTRIBUTES,
+			array(
+				'post_type' => 'post',
+				'author'    => '1,2',
+				'ids'       => '10,20',
+				'not'       => '5,6',
+				'search'    => 'test',
+			)
 		);
 		$args = RandomPostOnRefresh::build_query_args( $atts );
 		$this->assertEquals( array( 1, 2 ), $args['author__in'] );
@@ -105,10 +108,13 @@ class RandomPostOnRefreshTest extends TestCase {
 	 * Test build_query_args with taxonomy and terms.
 	 */
 	public function test_build_query_args_with_taxonomy() {
-		$atts = array(
-			'post_type' => 'post',
-			'taxonomy'  => 'category',
-			'terms'     => '3,4',
+		$atts = array_merge(
+			RandomPostOnRefresh::DEFAULT_ATTRIBUTES,
+			array(
+				'post_type' => 'post',
+				'taxonomy'  => 'category',
+				'terms'     => '3,4',
+			)
 		);
 		$args = RandomPostOnRefresh::build_query_args( $atts );
 		$this->assertEquals( array( 3, 4 ), $args['category__in'] );
@@ -118,10 +124,13 @@ class RandomPostOnRefreshTest extends TestCase {
 	 * Test build_query_args with show=image and image_required=true.
 	 */
 	public function test_build_query_args_with_image_required() {
-		$atts = array(
-			'post_type'      => 'post',
-			'show'           => 'title, image',
-			'image_required' => 'true',
+		$atts = array_merge(
+			RandomPostOnRefresh::DEFAULT_ATTRIBUTES,
+			array(
+				'post_type'      => 'post',
+				'show'           => 'title, image',
+				'image_required' => 'true',
+			)
 		);
 		$args = RandomPostOnRefresh::build_query_args( $atts );
 		$this->assertArrayHasKey( 'meta_query', $args );
