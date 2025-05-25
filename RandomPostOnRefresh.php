@@ -333,6 +333,6 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		}
 	}
 
-	RandomPostOnRefresh::initialize();
+	add_action( 'plugins_loaded', array( 'RandomPostOnRefresh', 'initialize' ) );
 
 }
