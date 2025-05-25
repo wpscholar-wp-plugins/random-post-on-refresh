@@ -7,7 +7,7 @@
     "lint": "npx yamllint **/*.yml",
     "start:env": "wp-env start",
     "stop:env": "wp-env stop",
-    "test:phpunit": "wp-env run phpunit"
+    "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh phpunit"
   },
   "repository": {
     "type": "git",

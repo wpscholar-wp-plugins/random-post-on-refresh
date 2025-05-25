@@ -273,7 +273,7 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 		public static function parse_id_list( $id_list ) {
 			$ids = array();
 			if ( ! empty( $id_list ) ) {
-				$ids = array_filter( array_map( 'absint', explode( ',', preg_replace( '#[^0-9,]#', '', $id_list ) ) ) );
+				$ids = array_values( array_filter( array_map( 'absint', explode( ',', preg_replace( '#[^0-9,]#', '', $id_list ) ) ) ) );
 			}
 
 			return $ids;

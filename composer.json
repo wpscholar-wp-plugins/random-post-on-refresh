@@ -16,7 +16,7 @@
     "wpscholar/phpcs-standards-wpscholar": "^1.0",
     "wp-cli/wp-cli-bundle": "^2.11",
     "phpunit/phpunit": "^9.5",
-    "brain/monkey": "^3.8"
+    "yoast/phpunit-polyfills": "^4.0"
   },
   "scripts": {
     "fix": [
