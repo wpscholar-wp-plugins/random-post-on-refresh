@@ -6,8 +6,8 @@
  * Version: 1.2.1
  * Author: Micah Wood
  * Author URI: https://wpscholar.com
- * Requires at least: 4.5
- * Requires PHP: 5.4
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Text Domain: random-post-on-refresh
  * Domain Path: /languages
  * License: GPL3
