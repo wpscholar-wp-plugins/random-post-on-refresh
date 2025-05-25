@@ -1,8 +1,8 @@
-# Copyright (C) 2024 Micah Wood
+# Copyright (C) 2025 Micah Wood
 # This file is distributed under the GPL3.
 msgid ""
 msgstr ""
-"Project-Id-Version: Random Post on Refresh 1.2.1\n"
+"Project-Id-Version: Random Post on Refresh 1.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/random-post-on-refresh\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: random-post-on-refresh\n"
 
 #. Plugin Name of the plugin
@@ -39,44 +39,46 @@ msgstr ""
 msgid "https://wpscholar.com"
 msgstr ""
 
-#: RandomPostOnRefresh.php:101
+#: RandomPostOnRefresh.php:102
 msgid "Sorry, your theme does not support featured images. Update the \"show\" attribute to exclude the \"image\" option."
 msgstr ""
 
 #. Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
-#: RandomPostOnRefresh.php:111
+#: RandomPostOnRefresh.php:112
+#, php-format
 msgid "Sorry, taxonomy \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
 msgstr ""
 
-#: RandomPostOnRefresh.php:122
+#: RandomPostOnRefresh.php:123
 msgid "Sorry, you cannot use the terms attribute without the taxonomy attribute. Please check your shortcode implementation."
 msgstr ""
 
-#: RandomPostOnRefresh.php:129
+#: RandomPostOnRefresh.php:130
 msgid "Sorry, you cannot use the taxonomy attribute without the terms attribute. Please check your shortcode implementation."
 msgstr ""
 
 #. Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
-#: RandomPostOnRefresh.php:142
+#: RandomPostOnRefresh.php:143
+#, php-format
 msgid "Sorry, post type \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
 msgstr ""
 
-#: RandomPostOnRefresh.php:200
+#: RandomPostOnRefresh.php:159
 msgid "Sorry, no matching posts were found. Your query may be too restrictive. Please check your shortcode implementation."
 msgstr ""
 
-#: RandomPostOnRefresh.php:201
+#: RandomPostOnRefresh.php:160
 msgid "Currently, only posts with featured images will be shown. Perhaps try setting the \"image_required\" property to \"false\"?"
 msgstr ""
 
-#: RandomPostOnRefresh.php:216
+#: RandomPostOnRefresh.php:175
 msgid "Sorry, the selected post does not have a featured image."
 msgstr ""
 
-#: RandomPostOnRefresh.php:325
+#: RandomPostOnRefresh.php:341
 msgid "Consult the documentation"
 msgstr ""
 
-#: RandomPostOnRefresh.php:327
+#: RandomPostOnRefresh.php:343
 msgid "Note: This helpful notification is only visible to logged in users who can edit this shortcode."
 msgstr ""
