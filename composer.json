@@ -1,40 +1,48 @@
 {
-    "name": "wpscholar/random-post-on-refresh",
-    "description": "A WordPress plugin that allows you to load a random post on every page load.",
-    "type": "wordpress-plugin",
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Micah Wood",
-            "homepage": "https://wpscholar.com"
-        }
-    ],
-    "require": {
-        "php": ">=5.4"
-    },
-    "require-dev": {
-        "wpscholar/phpcs-standards-wpscholar": "^1.0",
-        "wp-cli/wp-cli-bundle": "^2.11"
-    },
-    "scripts": {
-        "fix": [
-            "vendor/bin/phpcbf ."
-        ],
-        "i18n": [
-            "vendor/bin/wp i18n make-pot . ./languages/random-post-on-refresh.pot --headers='{\"POT-Creation-Date\":null}'"
-        ],
-        "lint": [
-            "vendor/bin/phpcs . -s"
-        ]
-    },
-    "scripts-descriptions": {
-        "fix": "Automatically fix coding standards issues where possible.",
-        "i18n": "Generate a .pot file for translation.",
-        "lint": "Check files against coding standards."
-    },
-    "config": {
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
-        }
+  "name": "wpscholar/random-post-on-refresh",
+  "description": "A WordPress plugin that allows you to load a random post on every page load.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Micah Wood",
+      "homepage": "https://wpscholar.com"
     }
+  ],
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "wpscholar/phpcs-standards-wpscholar": "^1.0",
+    "wp-cli/wp-cli-bundle": "^2.11",
+    "phpunit/phpunit": "^9.5",
+    "brain/monkey": "^3.8"
+  },
+  "scripts": {
+    "fix": [
+      "vendor/bin/phpcbf ."
+    ],
+    "i18n": [
+      "vendor/bin/wp i18n make-pot . ./languages/random-post-on-refresh.pot --headers='{\"POT-Creation-Date\":null}'"
+    ],
+    "lint": [
+      "vendor/bin/phpcs . -s"
+    ],
+    "test": [
+      "vendor/bin/phpunit"
+    ]
+  },
+  "scripts-descriptions": {
+    "fix": "Automatically fix coding standards issues where possible.",
+    "i18n": "Generate a .pot file for translation.",
+    "lint": "Check files against coding standards."
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "platform": {
+      "php": "7.4"
+    }
+  }
 }
