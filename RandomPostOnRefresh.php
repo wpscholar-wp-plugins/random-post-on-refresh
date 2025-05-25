@@ -3,7 +3,7 @@
  * Plugin Name: Random Post on Refresh
  * Description: Show a random post on every page load.
  * Plugin URI: http://wpscholar.com/wordpress-plugins/random-post-on-refresh/
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: Micah Wood
  * Author URI: https://wpscholar.com
  * Requires at least: 6.4

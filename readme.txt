@@ -5,7 +5,7 @@ Tags: random post, post rotation, different post
 Requires at least: 6.4
 Requires PHP: 7.4
 Tested up to: 6.8
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,6 +80,11 @@ Keep in mind that any of these attributes can be combined as needed.  Example: `
 
 == Changelog ==
 
+= 1.2.2 =
+
+* General maintenance
+* Allow customization of posts_per_page query arg
+
 = 1.2.1 =
 
 * General maintenance
@@ -118,4 +123,12 @@ Keep in mind that any of these attributes can be combined as needed.  Example: `
 = 1.2 =
 
 * Minor bug fixes and improvements.
+
+= 1.2.1 =
+
+* Allow filtering of query args.
+
+= 1.2.2 =
+
+* Allow customization of posts_per_page query arg.
 
