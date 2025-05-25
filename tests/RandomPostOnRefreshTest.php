@@ -31,7 +31,7 @@ class RandomPostOnRefreshTest extends TestCase {
 	 * Test that list_to_array splits and trims a comma-separated string.
 	 */
 	public function test_list_to_array_splits_and_trims() {
-		$result = RandomPostOnRefresh::list_to_array( 'a, b, c' );
+		$result = RandomPostOnRefresh::list_to_array( ' a ,b, c ' );
 		$this->assertEquals( array( 'a', 'b', 'c' ), $result );
 	}
 
