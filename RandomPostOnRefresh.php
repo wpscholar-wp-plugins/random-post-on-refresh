@@ -37,6 +37,9 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 			add_shortcode( self::SHORTCODE, array( __CLASS__, 'shortcode' ) );
 		}
 
+		/**
+		 * Load the textdomain.
+		 */
 		public static function load_textdomain() {
 			load_plugin_textdomain( 'random-post-on-refresh', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 		}
