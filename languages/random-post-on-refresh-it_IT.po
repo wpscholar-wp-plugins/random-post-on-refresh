@@ -1,0 +1,85 @@
+# Copyright (C) 2025 Micah Wood
+# This file is distributed under the GPL3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Random Post on Refresh 1.2.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/random-post-on-refresh\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Italian <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: random-post-on-refresh\n"
+"Language: it_IT\n"
+
+#. Plugin Name of the plugin
+#: RandomPostOnRefresh.php
+msgid "Random Post on Refresh"
+msgstr "Articolo casuale ad ogni aggiornamento"
+
+#. Plugin URI of the plugin
+#: RandomPostOnRefresh.php
+msgid "http://wpscholar.com/wordpress-plugins/random-post-on-refresh/"
+msgstr "http://wpscholar.com/wordpress-plugins/random-post-on-refresh/"
+
+#. Description of the plugin
+#: RandomPostOnRefresh.php
+msgid "Show a random post on every page load."
+msgstr "Mostra un articolo casuale ad ogni caricamento della pagina."
+
+#. Author of the plugin
+#: RandomPostOnRefresh.php
+msgid "Micah Wood"
+msgstr "Micah Wood"
+
+#. Author URI of the plugin
+#: RandomPostOnRefresh.php
+msgid "https://wpscholar.com"
+msgstr "https://wpscholar.com"
+
+#: RandomPostOnRefresh.php:102
+msgid "Sorry, your theme does not support featured images. Update the \"show\" attribute to exclude the \"image\" option."
+msgstr "Spiacenti, il tuo tema non supporta le immagini in evidenza. Aggiorna l'attributo \"show\" per escludere l'opzione \"image\"."
+
+#. Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
+#: RandomPostOnRefresh.php:112
+#, php-format
+msgid "Sorry, taxonomy \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
+msgstr "Spiacenti, la tassonomia \"%1$s\" non è valida. Le opzioni valide sono: %2$s. Controlla l'implementazione dello shortcode."
+
+#: RandomPostOnRefresh.php:123
+msgid "Sorry, you cannot use the terms attribute without the taxonomy attribute. Please check your shortcode implementation."
+msgstr "Spiacenti, non puoi usare l'attributo terms senza l'attributo taxonomy. Controlla l'implementazione dello shortcode."
+
+#: RandomPostOnRefresh.php:130
+msgid "Sorry, you cannot use the taxonomy attribute without the terms attribute. Please check your shortcode implementation."
+msgstr "Spiacenti, non puoi usare l'attributo taxonomy senza l'attributo terms. Controlla l'implementazione dello shortcode."
+
+#. Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
+#: RandomPostOnRefresh.php:143
+#, php-format
+msgid "Sorry, post type \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
+msgstr "Spiacenti, il tipo di articolo \"%1$s\" non è valido. Le opzioni valide sono: %2$s. Controlla l'implementazione dello shortcode."
+
+#: RandomPostOnRefresh.php:159
+msgid "Sorry, no matching posts were found. Your query may be too restrictive. Please check your shortcode implementation."
+msgstr "Spiacenti, non sono stati trovati articoli corrispondenti. La tua query potrebbe essere troppo restrittiva. Controlla l'implementazione dello shortcode."
+
+#: RandomPostOnRefresh.php:160
+msgid "Currently, only posts with featured images will be shown. Perhaps try setting the \"image_required\" property to \"false\"?"
+msgstr "Attualmente verranno mostrati solo articoli con immagini in evidenza. Forse prova a impostare la proprietà \"image_required\" su \"false\"?"
+
+#: RandomPostOnRefresh.php:175
+msgid "Sorry, the selected post does not have a featured image."
+msgstr "Spiacenti, l'articolo selezionato non ha un'immagine in evidenza."
+
+#: RandomPostOnRefresh.php:341
+msgid "Consult the documentation"
+msgstr "Consulta la documentazione"
+
+#: RandomPostOnRefresh.php:343
+msgid "Note: This helpful notification is only visible to logged in users who can edit this shortcode."
+msgstr "Nota: Questa notifica utile è visibile solo agli utenti connessi che possono modificare questo shortcode." 

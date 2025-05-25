@@ -1,0 +1,85 @@
+# Copyright (C) 2025 Micah Wood
+# This file is distributed under the GPL3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Random Post on Refresh 1.2.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/random-post-on-refresh\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: random-post-on-refresh\n"
+"Language: fr_FR\n"
+
+#. Plugin Name of the plugin
+#: RandomPostOnRefresh.php
+msgid "Random Post on Refresh"
+msgstr "Article aléatoire à chaque rafraîchissement"
+
+#. Plugin URI of the plugin
+#: RandomPostOnRefresh.php
+msgid "http://wpscholar.com/wordpress-plugins/random-post-on-refresh/"
+msgstr "http://wpscholar.com/wordpress-plugins/random-post-on-refresh/"
+
+#. Description of the plugin
+#: RandomPostOnRefresh.php
+msgid "Show a random post on every page load."
+msgstr "Afficher un article aléatoire à chaque chargement de page."
+
+#. Author of the plugin
+#: RandomPostOnRefresh.php
+msgid "Micah Wood"
+msgstr "Micah Wood"
+
+#. Author URI of the plugin
+#: RandomPostOnRefresh.php
+msgid "https://wpscholar.com"
+msgstr "https://wpscholar.com"
+
+#: RandomPostOnRefresh.php:102
+msgid "Sorry, your theme does not support featured images. Update the \"show\" attribute to exclude the \"image\" option."
+msgstr "Désolé, votre thème ne prend pas en charge les images mises en avant. Modifiez l'attribut \"show\" pour exclure l'option \"image\"."
+
+#. Translators: %1$s is replaced with taxonomy shortcode argument and %2$s is replaced with a comma-separated list of available taxonomies.
+#: RandomPostOnRefresh.php:112
+#, php-format
+msgid "Sorry, taxonomy \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
+msgstr "Désolé, la taxonomie \"%1$s\" n'est pas valide. Les options valides sont : %2$s. Veuillez vérifier votre implémentation du shortcode."
+
+#: RandomPostOnRefresh.php:123
+msgid "Sorry, you cannot use the terms attribute without the taxonomy attribute. Please check your shortcode implementation."
+msgstr "Désolé, vous ne pouvez pas utiliser l'attribut terms sans l'attribut taxonomy. Veuillez vérifier votre implémentation du shortcode."
+
+#: RandomPostOnRefresh.php:130
+msgid "Sorry, you cannot use the taxonomy attribute without the terms attribute. Please check your shortcode implementation."
+msgstr "Désolé, vous ne pouvez pas utiliser l'attribut taxonomy sans l'attribut terms. Veuillez vérifier votre implémentation du shortcode."
+
+#. Translators: %1$s is replaced with post_type shortcode argument and %2$s is replaced with a comma-separated list of available post types.
+#: RandomPostOnRefresh.php:143
+#, php-format
+msgid "Sorry, post type \"%1$s\" is invalid. Valid options are: %2$s. Please check your shortcode implementation."
+msgstr "Désolé, le type de publication \"%1$s\" n'est pas valide. Les options valides sont : %2$s. Veuillez vérifier votre implémentation du shortcode."
+
+#: RandomPostOnRefresh.php:159
+msgid "Sorry, no matching posts were found. Your query may be too restrictive. Please check your shortcode implementation."
+msgstr "Désolé, aucun article correspondant n'a été trouvé. Votre requête est peut-être trop restrictive. Veuillez vérifier votre implémentation du shortcode."
+
+#: RandomPostOnRefresh.php:160
+msgid "Currently, only posts with featured images will be shown. Perhaps try setting the \"image_required\" property to \"false\"?"
+msgstr "Actuellement, seuls les articles avec une image mise en avant seront affichés. Essayez peut-être de définir la propriété \"image_required\" sur \"false\" ?"
+
+#: RandomPostOnRefresh.php:175
+msgid "Sorry, the selected post does not have a featured image."
+msgstr "Désolé, l'article sélectionné n'a pas d'image mise en avant."
+
+#: RandomPostOnRefresh.php:341
+msgid "Consult the documentation"
+msgstr "Consultez la documentation"
+
+#: RandomPostOnRefresh.php:343
+msgid "Note: This helpful notification is only visible to logged in users who can edit this shortcode."
+msgstr "Remarque : Cette notification utile n'est visible que par les utilisateurs connectés pouvant modifier ce shortcode." 
