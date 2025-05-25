@@ -56,18 +56,26 @@ class RandomPostOnRefreshTest extends TestCase {
 	 */
 	public function test_build_query_args_defaults() {
 		$args = RandomPostOnRefresh::build_query_args( RandomPostOnRefresh::DEFAULT_ATTRIBUTES );
-		$this->assertEquals( '', $args['author'], 'author should be empty' );
-		$this->assertEquals( '', $args['class'], 'class should be empty' );
-		$this->assertEquals( '', $args['ids'], 'ids should be empty' );
+		// Author
+		$this->assertArrayNotHasKey( 'author__in', $args );
+		// IDs
+		$this->assertArrayNotHasKey( 'post__in', $args );
+		// Not
+		$this->assertArrayHasKey( 'post__not_in', $args ); // This should always be set
+		// Post type
+		$this->assertEquals( array( 'post' ), $args['post_type'] );
+		// Posts per page
+		$this->assertEquals( 100, $args['posts_per_page'] );
+		// Search
+		$this->assertArrayNotHasKey( 's', $args );
+		// Show
 		$this->assertArrayHasKey( 'meta_query', $args );
 		$this->assertArrayHasKey( 'key', $args['meta_query'][0] );
 		$this->assertEquals( '_thumbnail_id', $args['meta_query'][0]['key'] );
-		$this->assertEquals( '', $args['not'], 'not should be empty' );
-		$this->assertEquals( array( 'post' ), $args['post_type'], 'post_type should be post' );
-		$this->assertEquals( 100, $args['posts_per_page'], 'posts_per_page should be 100' );
-		$this->assertEquals( '', $args['search'], 'search should be empty' );
-		$this->assertEquals( '', $args['taxonomy'], 'taxonomy should be empty' );
-		$this->assertEquals( '', $args['terms'], 'terms should be empty' );
+		// Taxonomy / Terms
+		$this->assertArrayNotHasKey( 'category__in', $args );
+		$this->assertArrayNotHasKey( 'tag__in', $args );
+		$this->assertArrayNotHasKey( 'tax_query', $args );
 	}
 
 	/**
