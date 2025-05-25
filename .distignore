@@ -10,9 +10,11 @@ vendor
 
 # Files
 .distignore
+.distinclude
 .editorconfig
 .gitattributes
 .gitignore
+.nvmrc
 composer.json
 composer.lock
 Gruntfile.js
