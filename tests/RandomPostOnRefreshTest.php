@@ -74,11 +74,14 @@ class RandomPostOnRefreshTest extends TestCase {
 	 * Test build_query_args with minimal attributes.
 	 */
 	public function test_build_query_args_minimal() {
-		$atts = array(
-			'post_type' => 'post',
+		$atts = array_merge(
+			RandomPostOnRefresh::DEFAULT_ATTRIBUTES,
+			array(
+				'post_type' => 'post,page',
+			)
 		);
 		$args = RandomPostOnRefresh::build_query_args( $atts );
-		$this->assertEquals( array( 'post' ), $args['post_type'] );
+		$this->assertEquals( array( 'post', 'page' ), $args['post_type'] );
 		$this->assertEquals( 100, $args['posts_per_page'] );
 		$this->assertArrayHasKey( 'post__not_in', $args );
 	}
