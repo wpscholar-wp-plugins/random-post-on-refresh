@@ -6,6 +6,7 @@
 .wporg
 node_modules
 tests
+vendor
 
 # Files
 .distignore
