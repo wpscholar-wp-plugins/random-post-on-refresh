@@ -1,6 +1,10 @@
 .github/            export-ignore
+.gitignore          export-ignore
+.npmrc              export-ignore
 .wporg/             export-ignore
+.wp-env.json        export-ignore
 .distignore         export-ignore
+.distinclude        export-ignore
 .gitattributes      export-ignore
 .gitignore          export-ignore
 composer.json       export-ignore
@@ -8,4 +12,6 @@ composer.lock       export-ignore
 package.json        export-ignore
 package-lock.json   export-ignore
 phpcs.xml           export-ignore
+phpunit.xml         export-ignore
+playground.json     export-ignore
 tests/              export-ignore

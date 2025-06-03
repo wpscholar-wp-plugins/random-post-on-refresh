@@ -15,6 +15,7 @@ vendor
 .gitattributes
 .gitignore
 .nvmrc
+.wp-env.json
 composer.json
 composer.lock
 Gruntfile.js
@@ -24,6 +25,7 @@ package-lock.json
 phpunit.xml
 phpunit.xml.dist
 .phpunit.result.cache
+playground.json
 readme.md
 README.md
 wp-cli.local.yml
