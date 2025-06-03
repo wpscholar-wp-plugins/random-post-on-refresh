@@ -8,7 +8,8 @@
     "env:start": "wp-env start",
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
-    "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh vendor/bin/phpunit"
+    "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh vendor/bin/phpunit",
+    "playground": "npx @wp-playground/cli server --blueprint ./playground.json --mount .:/var/www/html/wp-content/plugins/random-post-on-refresh --mount ./.github/playground/uploads:/var/www/html/wp-content/uploads"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   },
   "homepage": "https://github.com/wpscholar-wp-plugins/random-post-on-refresh#readme",
   "devDependencies": {
-    "yaml-lint": "^1.2.4",
-    "@wordpress/env": "^10.24.0"
+    "@wordpress/env": "^10.24.0",
+    "@wp-playground/cli": "^1.0.29",
+    "yaml-lint": "^1.2.4"
   }
 }

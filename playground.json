@@ -1,0 +1,102 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Random Post On Refresh Demo",
+    "description": "A Playground environment to test the Random Post On Refresh plugin.",
+    "author": "wpscholar"
+  },
+  "landingPage": "/random-post-on-refresh/",
+  "preferredVersions": {
+    "php": "7.4",
+    "wp": "latest"
+  },
+  "plugins": ["random-post-on-refresh"],
+  "steps": [
+    {
+      "step": "resetData"
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "Random Post On Refresh",
+        "blogdescription": "A Random Post on Refresh demo",
+        "timezone_string": "America/New_York",
+        "start_of_week": 0,
+        "uploads_use_yearmonth_folders": 0,
+        "permalink_structure": "/%postname%/",
+        "show_on_front": "page",
+        "page_on_front": 28,
+        "page_for_posts": 0
+      }
+    },
+    {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "WP_DEBUG": true
+      }
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp user create wpscholar wpscholar@localhost.com --role=administrator --user_pass=password"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/food-pancakes.jpg --title='Pancakes'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/food-soup.jpg --title='Soup'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/food-tapas.jpg --title='Tapas'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/landscape-city-skyline.jpg --title='City Skyline'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/landscape-daisy.jpg --title='Daisy'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/landscape-mountains.jpg --title='Mountains'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/people-dinner.jpg --title='Dinner'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/people-redhead.jpeg --title='Redhead'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/people-woman-reading-book.jpg --title='Woman Reading Book'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/work-on-computer.jpg --title='Work on Computer'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/work-plumbing.jpeg --title='Plumbing'"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp media import /var/www/html/wp-content/uploads/work-signature.jpg --title='Signature'"
+    },
+    {
+      "step": "importWxr",
+      "file": {
+        "resource": "vfs",
+        "path": "/var/www/html/wp-content/uploads/content.xml"
+      }
+    },
+    {
+      "step": "login",
+      "username": "admin"
+    }
+  ]
+}
