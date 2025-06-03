@@ -9,7 +9,7 @@
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
     "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh vendor/bin/phpunit",
-    "playground": "npx @wp-playground/cli server --blueprint ./playground.json --mount .:/var/www/html/wp-content/plugins/random-post-on-refresh --mount ./.github/playground/uploads:/var/www/html/wp-content/uploads"
+    "playground": "npx @wp-playground/cli server --blueprint ./playground.json --mountBeforeInstall .:/var/www/html/wp-content/plugins/random-post-on-refresh:writeable --mount ./.github/playground/uploads:/var/www/html/wp-content/uploads"
   },
   "repository": {
     "type": "git",
