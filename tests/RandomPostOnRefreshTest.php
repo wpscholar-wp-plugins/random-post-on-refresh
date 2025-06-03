@@ -134,6 +134,27 @@ class RandomPostOnRefreshTest extends TestCase {
 		$args = RandomPostOnRefresh::build_query_args( $atts );
 		$this->assertEquals( array( 3, 4 ), $args['category__in'] );
 	}
+	
+	/**
+	 * Test build_query_args with custom taxonomy and terms.
+	 */
+	public function test_build_query_args_with_custom_taxonomy() {
+		$atts = array_merge(
+			RandomPostOnRefresh::DEFAULT_ATTRIBUTES,
+			array(
+				'post_type' => 'post',
+				'taxonomy'  => 'custom_tax',
+				'terms'     => '5,6',
+			)
+		);
+		$args = RandomPostOnRefresh::build_query_args( $atts );
+		$this->assertArrayHasKey( 'tax_query', $args );
+		$this->assertIsArray( $args['tax_query'] );
+		$this->assertIsArray( $args['tax_query'][0] );
+		$this->assertEquals( 'custom_tax', $args['tax_query'][0]['taxonomy'] );
+		$this->assertEquals( 'term_id', $args['tax_query'][0]['field'] );
+		$this->assertEquals( array( 5, 6 ), $args['tax_query'][0]['terms'] );
+	}
 
 	/**
 	 * Test build_query_args with show=image and image_required=true.

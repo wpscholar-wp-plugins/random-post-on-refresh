@@ -280,8 +280,11 @@ if ( ! class_exists( 'RandomPostOnRefresh' ) ) {
 					$query_args['tag__in'] = $terms;
 				} else {
 					$query_args['tax_query'] = array(
-						'taxonomy' => $atts['taxonomy'],
-						'terms'    => $terms,
+						array(
+							'taxonomy' => $atts['taxonomy'],
+							'field'    => 'term_id',
+							'terms'    => $terms,
+						),
 					);
 				}
 			}
