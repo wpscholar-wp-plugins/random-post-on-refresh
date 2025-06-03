@@ -25,6 +25,11 @@
     font-weight: bold;
 }
 
+.random-post-on-refresh__image img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Groups */
 .random-post-on-refresh.--has-groups {
     margin: 0 -10px;
