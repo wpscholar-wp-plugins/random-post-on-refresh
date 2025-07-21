@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e08f11623922313481b6bfa45451e87a",
+    "content-hash": "59195f617dc635cc4d317a036cad104a",
     "packages": [],
     "packages-dev": [
         {
             "name": "composer/ca-bundle",
-            "version": "1.5.6",
+            "version": "1.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "f65c239c970e7f072f067ab78646e9f0b2935175"
+                "reference": "d665d22c417056996c59019579f1967dfe5c1e82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/f65c239c970e7f072f067ab78646e9f0b2935175",
-                "reference": "f65c239c970e7f072f067ab78646e9f0b2935175",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/d665d22c417056996c59019579f1967dfe5c1e82",
+                "reference": "d665d22c417056996c59019579f1967dfe5c1e82",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +65,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.5.6"
+                "source": "https://github.com/composer/ca-bundle/tree/1.5.7"
             },
             "funding": [
                 {
@@ -81,7 +81,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-03-06T14:30:56+00:00"
+            "time": "2025-05-26T15:08:54+00:00"
         },
         {
             "name": "composer/class-map-generator",
@@ -158,16 +158,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.8.9",
+            "version": "2.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "b4e6bff2db7ce756ddb77ecee958a0f41f42bd9d"
+                "reference": "53834f587d7ab2527eb237459d7b94d1fb9d4c5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/b4e6bff2db7ce756ddb77ecee958a0f41f42bd9d",
-                "reference": "b4e6bff2db7ce756ddb77ecee958a0f41f42bd9d",
+                "url": "https://api.github.com/repos/composer/composer/zipball/53834f587d7ab2527eb237459d7b94d1fb9d4c5a",
+                "reference": "53834f587d7ab2527eb237459d7b94d1fb9d4c5a",
                 "shasum": ""
             },
             "require": {
@@ -252,7 +252,7 @@
                 "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
                 "security": "https://github.com/composer/composer/security/policy",
-                "source": "https://github.com/composer/composer/tree/2.8.9"
+                "source": "https://github.com/composer/composer/tree/2.8.10"
             },
             "funding": [
                 {
@@ -268,7 +268,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-05-13T12:01:37+00:00"
+            "time": "2025-07-10T17:08:33+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -647,28 +647,28 @@
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
-            "version": "v1.0.0",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/composer-installer.git",
-                "reference": "4be43904336affa5c2f70744a348312336afd0da"
+                "reference": "e9cf5e4bbf7eeaf9ef5db34938942602838fc2b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/composer-installer/zipball/4be43904336affa5c2f70744a348312336afd0da",
-                "reference": "4be43904336affa5c2f70744a348312336afd0da",
+                "url": "https://api.github.com/repos/PHPCSStandards/composer-installer/zipball/e9cf5e4bbf7eeaf9ef5db34938942602838fc2b1",
+                "reference": "e9cf5e4bbf7eeaf9ef5db34938942602838fc2b1",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0 || ^2.0",
+                "composer-plugin-api": "^2.2",
                 "php": ">=5.4",
                 "squizlabs/php_codesniffer": "^2.0 || ^3.1.0 || ^4.0"
             },
             "require-dev": {
-                "composer/composer": "*",
+                "composer/composer": "^2.2",
                 "ext-json": "*",
                 "ext-zip": "*",
-                "php-parallel-lint/php-parallel-lint": "^1.3.1",
+                "php-parallel-lint/php-parallel-lint": "^1.4.0",
                 "phpcompatibility/php-compatibility": "^9.0",
                 "yoast/phpunit-polyfills": "^1.0"
             },
@@ -688,9 +688,9 @@
             "authors": [
                 {
                     "name": "Franck Nijhof",
-                    "email": "franck.nijhof@dealerdirect.com",
-                    "homepage": "http://www.frenck.nl",
-                    "role": "Developer / IT Manager"
+                    "email": "opensource@frenck.dev",
+                    "homepage": "https://frenck.dev",
+                    "role": "Open source developer"
                 },
                 {
                     "name": "Contributors",
@@ -698,7 +698,6 @@
                 }
             ],
             "description": "PHP_CodeSniffer Standards Composer Installer Plugin",
-            "homepage": "http://www.dealerdirect.com",
             "keywords": [
                 "PHPCodeSniffer",
                 "PHP_CodeSniffer",
@@ -719,9 +718,28 @@
             ],
             "support": {
                 "issues": "https://github.com/PHPCSStandards/composer-installer/issues",
+                "security": "https://github.com/PHPCSStandards/composer-installer/security/policy",
                 "source": "https://github.com/PHPCSStandards/composer-installer"
             },
-            "time": "2023-01-05T11:28:13+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/PHPCSStandards",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/jrfnl",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/php_codesniffer",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/phpcsstandards",
+                    "type": "thanks_dev"
+                }
+            ],
+            "time": "2025-07-17T20:45:56+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -1009,16 +1027,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "6.4.1",
+            "version": "6.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jsonrainbow/json-schema.git",
-                "reference": "35d262c94959571e8736db1e5c9bc36ab94ae900"
+                "reference": "ce1fd2d47799bb60668643bc6220f6278a4c1d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/35d262c94959571e8736db1e5c9bc36ab94ae900",
-                "reference": "35d262c94959571e8736db1e5c9bc36ab94ae900",
+                "url": "https://api.github.com/repos/jsonrainbow/json-schema/zipball/ce1fd2d47799bb60668643bc6220f6278a4c1d02",
+                "reference": "ce1fd2d47799bb60668643bc6220f6278a4c1d02",
                 "shasum": ""
             },
             "require": {
@@ -1078,9 +1096,9 @@
             ],
             "support": {
                 "issues": "https://github.com/jsonrainbow/json-schema/issues",
-                "source": "https://github.com/jsonrainbow/json-schema/tree/6.4.1"
+                "source": "https://github.com/jsonrainbow/json-schema/tree/6.4.2"
             },
-            "time": "2025-04-04T13:08:07+00:00"
+            "time": "2025-06-03T18:27:04+00:00"
         },
         {
             "name": "marc-mabe/php-enum",
@@ -1157,16 +1175,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.17.0",
+            "version": "v1.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "3a752d39bd7d8dc1e19bcf424f3d5ac1a1ca6ad5"
+                "reference": "465810689c477fbba17f4f949b75e4d0bdab13ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/3a752d39bd7d8dc1e19bcf424f3d5ac1a1ca6ad5",
-                "reference": "3a752d39bd7d8dc1e19bcf424f3d5ac1a1ca6ad5",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/465810689c477fbba17f4f949b75e4d0bdab13ea",
+                "reference": "465810689c477fbba17f4f949b75e4d0bdab13ea",
                 "shasum": ""
             },
             "require": {
@@ -1179,7 +1197,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17.0-dev"
+                    "dev-master": "1.17.2-dev"
                 }
             },
             "autoload": {
@@ -1200,22 +1218,22 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.17.0"
+                "source": "https://github.com/mck89/peast/tree/v1.17.2"
             },
-            "time": "2025-03-07T19:44:14+00:00"
+            "time": "2025-07-01T09:30:45+00:00"
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.13.1",
+            "version": "1.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c"
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/1720ddd719e16cf0db4eb1c6eca108031636d46c",
-                "reference": "1720ddd719e16cf0db4eb1c6eca108031636d46c",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/faed855a7b5f4d4637717c2b3863e277116beb36",
+                "reference": "faed855a7b5f4d4637717c2b3863e277116beb36",
                 "shasum": ""
             },
             "require": {
@@ -1254,7 +1272,7 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.1"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.3"
             },
             "funding": [
                 {
@@ -1262,7 +1280,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-04-29T12:36:36+00:00"
+            "time": "2025-07-05T12:25:42+00:00"
         },
         {
             "name": "nb/oxymel",
@@ -1311,16 +1329,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.4.0",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "447a020a1f875a434d62f2a401f53b82a396e494"
+                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/447a020a1f875a434d62f2a401f53b82a396e494",
-                "reference": "447a020a1f875a434d62f2a401f53b82a396e494",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ae59794362fe85e051a58ad36b289443f57be7a9",
+                "reference": "ae59794362fe85e051a58ad36b289443f57be7a9",
                 "shasum": ""
             },
             "require": {
@@ -1363,9 +1381,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.4.0"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.5.0"
             },
-            "time": "2024-12-30T11:07:19+00:00"
+            "time": "2025-05-31T08:24:38+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -1696,29 +1714,29 @@
         },
         {
             "name": "phpcsstandards/phpcsextra",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSExtra.git",
-                "reference": "46d08eb86eec622b96c466adec3063adfed280dd"
+                "reference": "fa4b8d051e278072928e32d817456a7fdb57b6ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/46d08eb86eec622b96c466adec3063adfed280dd",
-                "reference": "46d08eb86eec622b96c466adec3063adfed280dd",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSExtra/zipball/fa4b8d051e278072928e32d817456a7fdb57b6ca",
+                "reference": "fa4b8d051e278072928e32d817456a7fdb57b6ca",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4",
-                "phpcsstandards/phpcsutils": "^1.0.9",
-                "squizlabs/php_codesniffer": "^3.12.1"
+                "phpcsstandards/phpcsutils": "^1.1.0",
+                "squizlabs/php_codesniffer": "^3.13.0 || ^4.0"
             },
             "require-dev": {
                 "php-parallel-lint/php-console-highlighter": "^1.0",
-                "php-parallel-lint/php-parallel-lint": "^1.3.2",
+                "php-parallel-lint/php-parallel-lint": "^1.4.0",
                 "phpcsstandards/phpcsdevcs": "^1.1.6",
                 "phpcsstandards/phpcsdevtools": "^1.2.1",
-                "phpunit/phpunit": "^4.5 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "^4.5 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4"
             },
             "type": "phpcodesniffer-standard",
             "extra": {
@@ -1774,33 +1792,33 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-04-20T23:35:32+00:00"
+            "time": "2025-06-14T07:40:39+00:00"
         },
         {
             "name": "phpcsstandards/phpcsutils",
-            "version": "1.0.12",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHPCSUtils.git",
-                "reference": "87b233b00daf83fb70f40c9a28692be017ea7c6c"
+                "reference": "65355670ac17c34cd235cf9d3ceae1b9252c4dad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/87b233b00daf83fb70f40c9a28692be017ea7c6c",
-                "reference": "87b233b00daf83fb70f40c9a28692be017ea7c6c",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHPCSUtils/zipball/65355670ac17c34cd235cf9d3ceae1b9252c4dad",
+                "reference": "65355670ac17c34cd235cf9d3ceae1b9252c4dad",
                 "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.1 || ^0.5 || ^0.6.2 || ^0.7 || ^1.0",
                 "php": ">=5.4",
-                "squizlabs/php_codesniffer": "^3.10.0 || 4.0.x-dev@dev"
+                "squizlabs/php_codesniffer": "^3.13.0 || ^4.0"
             },
             "require-dev": {
                 "ext-filter": "*",
                 "php-parallel-lint/php-console-highlighter": "^1.0",
-                "php-parallel-lint/php-parallel-lint": "^1.3.2",
+                "php-parallel-lint/php-parallel-lint": "^1.4.0",
                 "phpcsstandards/phpcsdevcs": "^1.1.6",
-                "yoast/phpunit-polyfills": "^1.1.0 || ^2.0.0"
+                "yoast/phpunit-polyfills": "^1.1.0 || ^2.0.0 || ^3.0.0"
             },
             "type": "phpcodesniffer-standard",
             "extra": {
@@ -1837,6 +1855,7 @@
                 "phpcodesniffer-standard",
                 "phpcs",
                 "phpcs3",
+                "phpcs4",
                 "standards",
                 "static analysis",
                 "tokens",
@@ -1860,9 +1879,13 @@
                 {
                     "url": "https://opencollective.com/php_codesniffer",
                     "type": "open_collective"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/phpcsstandards",
+                    "type": "thanks_dev"
                 }
             ],
-            "time": "2024-05-20T13:34:27+00:00"
+            "time": "2025-06-12T04:32:33+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -3603,16 +3626,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.13.0",
+            "version": "3.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "65ff2489553b83b4597e89c3b8b721487011d186"
+                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/65ff2489553b83b4597e89c3b8b721487011d186",
-                "reference": "65ff2489553b83b4597e89c3b8b721487011d186",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/5b5e3821314f947dd040c70f7992a64eac89025c",
+                "reference": "5b5e3821314f947dd040c70f7992a64eac89025c",
                 "shasum": ""
             },
             "require": {
@@ -3683,7 +3706,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-05-11T03:36:00+00:00"
+            "time": "2025-06-17T22:17:01+00:00"
         },
         {
             "name": "symfony/console",
@@ -4965,16 +4988,16 @@
         },
         {
             "name": "wp-cli/core-command",
-            "version": "v2.1.20",
+            "version": "v2.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/core-command.git",
-                "reference": "83e4692784a815bb7f5df10b72204f237b5224b9"
+                "reference": "f157fb37dae1d13fe7318452f932917161e83e53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/core-command/zipball/83e4692784a815bb7f5df10b72204f237b5224b9",
-                "reference": "83e4692784a815bb7f5df10b72204f237b5224b9",
+                "url": "https://api.github.com/repos/wp-cli/core-command/zipball/f157fb37dae1d13fe7318452f932917161e83e53",
+                "reference": "f157fb37dae1d13fe7318452f932917161e83e53",
                 "shasum": ""
             },
             "require": {
@@ -4986,7 +5009,7 @@
                 "wp-cli/db-command": "^1.3 || ^2",
                 "wp-cli/entity-command": "^1.3 || ^2",
                 "wp-cli/extension-command": "^1.2 || ^2",
-                "wp-cli/wp-cli-tests": "^4"
+                "wp-cli/wp-cli-tests": "^5"
             },
             "type": "wp-cli-package",
             "extra": {
@@ -5030,9 +5053,9 @@
             "homepage": "https://github.com/wp-cli/core-command",
             "support": {
                 "issues": "https://github.com/wp-cli/core-command/issues",
-                "source": "https://github.com/wp-cli/core-command/tree/v2.1.20"
+                "source": "https://github.com/wp-cli/core-command/tree/v2.1.21"
             },
-            "time": "2025-04-16T11:23:00+00:00"
+            "time": "2025-07-08T17:31:39+00:00"
         },
         {
             "name": "wp-cli/cron-command",
@@ -5831,16 +5854,16 @@
         },
         {
             "name": "wp-cli/language-command",
-            "version": "v2.0.23",
+            "version": "v2.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/language-command.git",
-                "reference": "7221cc39d2b14fd39e55aa7884889f26eec2f822"
+                "reference": "1f1ca0ce3ee6cc46edfe06ee093cf3a57a131a18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/language-command/zipball/7221cc39d2b14fd39e55aa7884889f26eec2f822",
-                "reference": "7221cc39d2b14fd39e55aa7884889f26eec2f822",
+                "url": "https://api.github.com/repos/wp-cli/language-command/zipball/1f1ca0ce3ee6cc46edfe06ee093cf3a57a131a18",
+                "reference": "1f1ca0ce3ee6cc46edfe06ee093cf3a57a131a18",
                 "shasum": ""
             },
             "require": {
@@ -5850,7 +5873,7 @@
                 "wp-cli/db-command": "^1.3 || ^2",
                 "wp-cli/entity-command": "^1.3 || ^2",
                 "wp-cli/extension-command": "^1.2 || ^2",
-                "wp-cli/wp-cli-tests": "^4"
+                "wp-cli/wp-cli-tests": "^5"
             },
             "type": "wp-cli-package",
             "extra": {
@@ -5905,9 +5928,9 @@
             "homepage": "https://github.com/wp-cli/language-command",
             "support": {
                 "issues": "https://github.com/wp-cli/language-command/issues",
-                "source": "https://github.com/wp-cli/language-command/tree/v2.0.23"
+                "source": "https://github.com/wp-cli/language-command/tree/v2.0.24"
             },
-            "time": "2025-04-10T11:09:04+00:00"
+            "time": "2025-07-08T17:50:14+00:00"
         },
         {
             "name": "wp-cli/maintenance-mode-command",
