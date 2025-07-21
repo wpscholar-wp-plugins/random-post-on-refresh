@@ -3,12 +3,13 @@
   "description": "Show a random post on every page load.",
   "private": true,
   "scripts": {
-    "test": "npm run test:phpunit",
-    "lint": "npx yamllint **/*.yml",
     "env:start": "wp-env start",
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
-    "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh vendor/bin/phpunit",
+    "lint": "npx yamllint **/*.yml",
+    "test": "npm run test:phpunit",
+    "test:coverage": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh composer run test:coverage",
+    "test:phpunit": "wp-env run tests-cli --env-cwd=wp-content/plugins/random-post-on-refresh composer run test",
     "playground": "npx @wp-playground/cli server --blueprint ./playground.json --mountBeforeInstall .:/var/www/html/wp-content/plugins/random-post-on-refresh:writeable --mount ./.github/playground/uploads:/var/www/html/wp-content/uploads"
   },
   "repository": {

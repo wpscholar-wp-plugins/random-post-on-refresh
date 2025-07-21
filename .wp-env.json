@@ -4,5 +4,13 @@
   "phpVersion": "7.4",
   "config": {
     "WP_DEBUG": true
+  },
+  "env": {
+    "tests": {
+      "config": {
+        "WP_DEBUG": true,
+        "XDEBUG_MODE": "coverage"
+      }
+    }
   }
 }

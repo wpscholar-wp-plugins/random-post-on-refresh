@@ -11,6 +11,17 @@
     <include>
       <directory suffix=".php">./</directory>
     </include>
+    <exclude>
+      <directory>./vendor</directory>
+      <directory>./tests</directory>
+      <directory>./languages</directory>
+      <directory>./assets</directory>
+    </exclude>
+    <report>
+      <clover outputFile="coverage.xml" />
+      <html outputDirectory="coverage" lowUpperBound="50" highLowerBound="90" />
+      <text outputFile="php://stdout" showUncoveredFiles="true" showOnlySummary="false" />
+    </report>
   </coverage>
   <testsuites>
     <testsuite name="Plugin Test Suite">
