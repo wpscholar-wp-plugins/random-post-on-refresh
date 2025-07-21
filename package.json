@@ -3,7 +3,7 @@
   "description": "Show a random post on every page load.",
   "private": true,
   "scripts": {
-    "env:start": "wp-env start",
+    "env:start": "wp-env start --xdebug=coverage",
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
     "lint": "npx yamllint **/*.yml",
