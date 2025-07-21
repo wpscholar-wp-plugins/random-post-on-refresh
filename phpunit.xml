@@ -5,9 +5,20 @@
   colors="true"
   verbose="true"
   stopOnFailure="false"
+  beStrictAboutCoversAnnotation="true"
+  beStrictAboutOutputDuringTests="true"
+  beStrictAboutTodoAnnotatedTests="true"
+  convertDeprecationsToExceptions="true"
+  failOnRisky="true"
+  failOnWarning="true"
   xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
 >
-  <coverage processUncoveredFiles="true">
+  <coverage
+    processUncoveredFiles="true"
+    includeUncoveredFiles="true"
+    ignoreDeprecatedCodeUnits="true"
+    disableCodeCoverageIgnore="true"
+  >
     <include>
       <directory suffix=".php">./</directory>
     </include>
@@ -28,4 +39,10 @@
       <directory>./tests/</directory>
     </testsuite>
   </testsuites>
+  <php>
+    <ini name="display_errors" value="On" />
+    <ini name="error_reporting" value="-1" />
+    <ini name="xdebug.mode" value="coverage" />
+    <ini name="memory_limit" value="512M" />
+  </php>
 </phpunit>
