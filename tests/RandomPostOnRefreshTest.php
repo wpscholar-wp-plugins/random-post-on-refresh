@@ -13,6 +13,8 @@ use PHPUnit\Framework\TestCase;
 class RandomPostOnRefreshTest extends TestCase {
 	/**
 	 * Test that parse_id_list returns an array of integers from a string.
+	 *
+	 * @covers RandomPostOnRefresh::parse_id_list
 	 */
 	public function test_parse_id_list_returns_array_of_ints() {
 		$result = RandomPostOnRefresh::parse_id_list( '1,2,3,abc,4' );
@@ -21,6 +23,8 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test that parse_id_list returns an empty array for an empty string.
+	 *
+	 * @covers RandomPostOnRefresh::parse_id_list
 	 */
 	public function test_parse_id_list_empty_string_returns_empty_array() {
 		$result = RandomPostOnRefresh::parse_id_list( '' );
@@ -29,6 +33,8 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test that list_to_array splits and trims a comma-separated string.
+	 *
+	 * @covers RandomPostOnRefresh::list_to_array
 	 */
 	public function test_list_to_array_splits_and_trims() {
 		$result = RandomPostOnRefresh::list_to_array( ' a ,b, c ' );
@@ -37,6 +43,8 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test that list_to_array works with a custom delimiter.
+	 *
+	 * @covers RandomPostOnRefresh::list_to_array
 	 */
 	public function test_list_to_array_with_custom_delimiter() {
 		$result = RandomPostOnRefresh::list_to_array( 'a|b|c', '|' );
@@ -45,6 +53,12 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Smoke test: shortcode handler should return a string.
+	 *
+	 * @covers RandomPostOnRefresh::shortcode
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::parse_id_list
+	 * @covers RandomPostOnRefresh::list_to_array
+	 * @covers RandomPostOnRefresh::error
 	 */
 	public function test_shortcode_returns_string() {
 		$output = RandomPostOnRefresh::shortcode( array() );
@@ -53,6 +67,9 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test build_query_args with default attributes.
+	 *
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::list_to_array
 	 */
 	public function test_build_query_args_defaults() {
 		$args = RandomPostOnRefresh::build_query_args( RandomPostOnRefresh::DEFAULT_ATTRIBUTES );
@@ -84,6 +101,9 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test build_query_args with minimal attributes.
+	 *
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::list_to_array
 	 */
 	public function test_build_query_args_minimal() {
 		$atts = array_merge(
@@ -100,6 +120,10 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test build_query_args with author, ids, not, and search.
+	 *
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::list_to_array
+	 * @covers RandomPostOnRefresh::parse_id_list
 	 */
 	public function test_build_query_args_with_filters() {
 		$atts = array_merge(
@@ -121,6 +145,10 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test build_query_args with taxonomy and terms.
+	 *
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::list_to_array
+	 * @covers RandomPostOnRefresh::parse_id_list
 	 */
 	public function test_build_query_args_with_taxonomy() {
 		$atts = array_merge(
@@ -134,9 +162,13 @@ class RandomPostOnRefreshTest extends TestCase {
 		$args = RandomPostOnRefresh::build_query_args( $atts );
 		$this->assertEquals( array( 3, 4 ), $args['category__in'] );
 	}
-	
+
 	/**
 	 * Test build_query_args with custom taxonomy and terms.
+	 *
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::list_to_array
+	 * @covers RandomPostOnRefresh::parse_id_list
 	 */
 	public function test_build_query_args_with_custom_taxonomy() {
 		$atts = array_merge(
@@ -158,6 +190,9 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test build_query_args with show=image and image_required=true.
+	 *
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::list_to_array
 	 */
 	public function test_build_query_args_with_image_required() {
 		$atts = array_merge(
@@ -175,6 +210,9 @@ class RandomPostOnRefreshTest extends TestCase {
 
 	/**
 	 * Test build_query_args with orderby=random and order=invalid.
+	 *
+	 * @covers RandomPostOnRefresh::build_query_args
+	 * @covers RandomPostOnRefresh::list_to_array
 	 */
 	public function test_build_query_args_with_random_order() {
 		$atts = array_merge(
