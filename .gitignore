@@ -1,5 +1,7 @@
 /node_modules
 /vendor
 .idea
+coverage.xml
+/coverage
 .phpunit.result.cache
 .wp-env.override.json
