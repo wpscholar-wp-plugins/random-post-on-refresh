@@ -1,6 +1,11 @@
 # Random Post on Refresh
 
-![Deploy to WordPress.org](https://github.com/wpscholar-wp-plugins/random-post-on-refresh/workflows/Deploy%20to%20WordPress.org/badge.svg?branch=master&event=push)
+[![Tests](https://github.com/wpscholar/url/actions/workflows/tests.yml/badge.svg)](https://github.com/wpscholar-wp-plugins/random-post-on-refresh/actions/workflows/tests.yml)
+[![Latest Stable Version](https://img.shields.io/packagist/v/wpscholar/url.svg)](https://packagist.org/packages/wpscholar-wp-plugins/random-post-on-refresh)
+[![PHP Version Support](https://img.shields.io/badge/php-%3E%3D7.2-blue)](https://packagist.org/packages/wpscholar-wp-plugins/random-post-on-refresh)
+[![License](https://img.shields.io/packagist/l/wpscholar/url.svg)](https://packagist.org/packages/wpscholar-wp-plugins/random-post-on-refresh)
+[![codecov](https://codecov.io/gh/wpscholar/url/branch/main/graph/badge.svg)](https://codecov.io/gh/wpscholar-wp-plugins/random-post-on-refresh)
+![Deploy to WordPress.org](https://github.com/wpscholar-wp-plugins/random-post-on-refresh/workflows/Deploy%20to%20WordPress.org/badge.svg?branch=main&event=push)
 
 ## Description
 The **Random Post on Refresh** plugin allows you to randomly display a different WordPress post on every page load. It is lightweight, works with custom post types, and is easy to use via a simple shortcode.
