@@ -24,7 +24,7 @@
   "homepage": "https://github.com/wpscholar-wp-plugins/random-post-on-refresh#readme",
   "devDependencies": {
     "@wordpress/env": "^10.24.0",
-    "@wp-playground/cli": "^1.0.29",
+    "@wp-playground/cli": "^1.2.3",
     "yaml-lint": "^1.2.4"
   }
 }
